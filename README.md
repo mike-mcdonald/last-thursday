@@ -39,6 +39,8 @@ Docker set up a few containers to help you out and this Dockerfile copies some c
 There is a Postgres database, a container to absorb and display e-mails using mailhog, and the Drupal web server (8.3.x on an Apache web server).
 
 # More Docker information
-https://docs.docker.com/
+* https://www.docker.com/what-docker
 
-https://github.com/docker/labs/tree/master
+* https://docs.docker.com/
+
+* https://github.com/docker/labs/tree/master
