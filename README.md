@@ -29,10 +29,10 @@ From the directory you've cloned this repository into, run the following command
 Navigate to localhost:8080 (native Docker) or (probably) 192.168.99.100:8080 (Docker Toolbox).
 
 Install Drupal as you are used to doing.  You'll have a Postgres database available with the following configuration changes:
-Database name: postgres
-Database username: postgres
-Database password: example
-ADVANCED OPTIONS: Database host: postgres
+* Database name: postgres
+* Database username: postgres
+* Database password: example
+* ADVANCED OPTIONS: Database host: postgres
 
 ## What happened?
 Docker set up a few containers to help you out and this Dockerfile copies some configuration options over to get everything set up.
