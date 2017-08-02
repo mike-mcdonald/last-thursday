@@ -38,7 +38,7 @@ ADVANCED OPTIONS: Database host: postgres
 Docker set up a few containers to help you out and this Dockerfile copies some configuration options over to get everything set up.
 There is a Postgres database, a container to absorb and display e-mails using mailhog, and the Drupal web server (8.3.x on an Apache web server).
 
-#More Docker information
+# More Docker information
 https://docs.docker.com/
 
 https://github.com/docker/labs/tree/master
