@@ -18,6 +18,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends msmtp git postg
 
 COPY ./msmtprc /etc/
 COPY ./apache_site_config.conf /etc/apache2/sites-available/000-default.conf
+COPY ./sites/default/settings.php /var/www/html/sites/default/
+COPY ./modules /var/www/html/modules/
+COPY ./themes /var/www/html/themes/custom
 
 RUN echo 'sendmail_path = /usr/bin/msmtp -t' > /usr/local/etc/php/conf.d/mail.ini
 
