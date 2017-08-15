@@ -13,6 +13,11 @@
 version: '2'
 
 services:
+  proxy:
+    build: proxy
+    ports:
+      - 80:80
+    restart: always
 
   postgres:
     image: postgres:9.6

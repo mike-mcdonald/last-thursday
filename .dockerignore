@@ -4,3 +4,5 @@
 !install.sh
 !apache_site_config.conf
 !sites
+!modules
+!proxy
