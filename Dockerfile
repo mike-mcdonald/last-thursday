@@ -1,29 +1,43 @@
 # from https://www.drupal.org/requirements/php#drupalversions
-FROM drupal:8.3-apache
+FROM php:7.1-apache
 
-# from https://github.com/docker-library/php/issues/135
-# need to set up some way for this image to send mail
-# RUN apt-get update && \
-# 	apt-get install -y ssmtp && \
-# 	apt-get clean && \
-# 	echo 'sendmail_path = /usr/sbin/ssmtp -t' > /usr/local/etc/php/conf.d/mail.ini
+RUN a2enmod rewrite
 
-# RUN sed -i -e 's/mailhub=mail/mailhub=mail:1025/' \
-# 	-e 's/#FromLineOverride/FromLineOverride/' \
-#      #-e 's/#rewriteDomain=/rewriteDomain=ourdomain/' \
-# #     -e '/hostname=/d' \
-#      /etc/ssmtp/ssmtp.conf
+# install the PHP extensions we need
+RUN set -ex \
+	&& buildDeps=' \
+		libjpeg62-turbo-dev \
+		libpng12-dev \
+		libpq-dev \
+	' \
+	&& apt-get update && apt-get install -y --no-install-recommends $buildDeps && rm -rf /var/lib/apt/lists/* \
+	&& docker-php-ext-configure gd \
+		--with-jpeg-dir=/usr \
+		--with-png-dir=/usr \
+	&& docker-php-ext-install -j "$(nproc)" gd mbstring opcache pdo pdo_mysql pdo_pgsql zip \
+# PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20151012/gd.so' - libjpeg.so.62: cannot open shared object file: No such file or directory in Unknown on line 0
+# PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20151012/pdo_pgsql.so' - libpq.so.5: cannot open shared object file: No such file or directory in Unknown on line 0
+	&& apt-mark manual \
+		libjpeg62-turbo \
+		libpq5 \
+	&& apt-get purge -y --auto-remove $buildDeps
+
+# set recommended PHP.ini settings
+# see https://secure.php.net/manual/en/opcache.installation.php
+RUN { \
+		echo 'opcache.memory_consumption=128'; \
+		echo 'opcache.interned_strings_buffer=8'; \
+		echo 'opcache.max_accelerated_files=4000'; \
+		echo 'opcache.revalidate_freq=60'; \
+		echo 'opcache.fast_shutdown=1'; \
+		echo 'opcache.enable_cli=1'; \
+	} > /usr/local/etc/php/conf.d/opcache-recommended.ini
+
+WORKDIR /var/www/html
 
 RUN apt-get update && apt-get install -y --no-install-recommends msmtp git postgresql-9.4 vim
 
-COPY ./msmtprc /etc/
-COPY ./apache_site_config.conf /etc/apache2/sites-available/000-default.conf
-
 RUN echo 'sendmail_path = /usr/bin/msmtp -t' > /usr/local/etc/php/conf.d/mail.ini
-
-# install dependencies for composer and drush
-# RUN apt-get update && apt-get install -y --no-install-recommends git
-# RUN apt-get update && apt-get install -y --no-install-recommends postgresql-9.4
 
 # install composer (from composer website)
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
@@ -32,7 +46,26 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
 	&& php -r "unlink('composer-setup.php');" \
 	&& mv composer.phar /usr/local/bin/composer
 
-# install drush using composer
-RUN composer require drush/drush \
-	&& ln -s /var/www/html/vendor/drush/drush/drush /usr/local/bin/drush
+# install drupal using composer
+RUN composer create-project drupal-composer/drupal-project:8.x-dev . --stability dev --no-interaction
 
+RUN composer config repositories.drupal composer https://packages.drupal.org/8
+
+# install drush using composer
+RUN ln -s ./vendor/drush/drush/drush /usr/local/bin/drush
+
+RUN composer require drupal/token \
+	&& composer require drupal/admin_toolbar \
+	&& composer require drupal/devel \
+	&& composer require drupal/ds \
+	&& composer require drupal/bootstrap \
+	&& composer require drupal/rng \
+	&& composer require drupal/paragraphs
+
+COPY ./msmtprc /etc/
+COPY ./apache_site_config.conf /etc/apache2/sites-available/000-default.conf
+COPY ./settings.php /var/www/html/web/sites/default/
+
+RUN chown -R www-data:www-data web/sites web/modules web/themes
+
+VOLUME ["/var/www/html/web/sites", "/var/www/html/web/modules", "/var/www/html/web/themes"]
