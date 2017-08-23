@@ -57,6 +57,7 @@ RUN ln -s ./vendor/drush/drush/drush /usr/local/bin/drush
 RUN composer require drupal/token \
 	&& composer require drupal/admin_toolbar \
 	&& composer require drupal/ds \
+	&& composer require drupal/devel \
 
 COPY ./msmtprc /etc/
 COPY ./apache_site_config.conf /etc/apache2/sites-available/000-default.conf
