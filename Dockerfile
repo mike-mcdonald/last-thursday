@@ -9,14 +9,15 @@ RUN set -ex \
 		libjpeg62-turbo-dev \
 		libpng12-dev \
 		libpq-dev \
+		postgresql-9.4 \
 	' \
-	&& apt-get update && apt-get install -y --no-install-recommends $buildDeps && rm -rf /var/lib/apt/lists/* \
+	&& apt-get update \
+	&& apt-get install -y --no-install-recommends $buildDeps \
+	&& rm -rf /var/lib/apt/lists/* \
 	&& docker-php-ext-configure gd \
 		--with-jpeg-dir=/usr \
 		--with-png-dir=/usr \
 	&& docker-php-ext-install -j "$(nproc)" gd mbstring opcache pdo pdo_mysql pdo_pgsql zip \
-# PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20151012/gd.so' - libjpeg.so.62: cannot open shared object file: No such file or directory in Unknown on line 0
-# PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20151012/pdo_pgsql.so' - libpq.so.5: cannot open shared object file: No such file or directory in Unknown on line 0
 	&& apt-mark manual \
 		libjpeg62-turbo \
 		libpq5 \
@@ -33,11 +34,20 @@ RUN { \
 		echo 'opcache.enable_cli=1'; \
 	} > /usr/local/etc/php/conf.d/opcache-recommended.ini
 
+# set up development dependencies
+RUN set -ex \
+	&& buildDeps=' \
+		msmtp \
+		git \
+		vim \
+	' \
+	&& apt-get update \
+	&& apt-get install -y --no-install-recommends $buildDeps \
+	&& rm -rf /var/lib/apt/lists/* \
+	&& apt-get purge -y --auto-remove $buildDeps
+
+
 WORKDIR /var/www/html
-
-RUN apt-get update && apt-get install -y --no-install-recommends msmtp git postgresql-9.4 vim
-
-RUN echo 'sendmail_path = /usr/bin/msmtp -t' > /usr/local/etc/php/conf.d/mail.ini
 
 # install composer (from composer website)
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
@@ -49,20 +59,46 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
 # install drupal using composer
 RUN composer create-project drupal-composer/drupal-project:8.x-dev . --stability dev --no-interaction
 
+# add repositories
+# access these modules as drupal/<module>
+# means we can make a pdx/<module>?
 RUN composer config repositories.drupal composer https://packages.drupal.org/8
 
-# install drush using composer
-RUN ln -s ./vendor/drush/drush/drush /usr/local/bin/drush
+# install drush symlink so it can be accessed form anywhere in the container
+RUN ln -s /var/www/html/vendor/drush/drush/drush /usr/local/bin/drush
 
-RUN composer require drupal/token \
-	&& composer require drupal/admin_toolbar \
-	&& composer require drupal/ds \
-	&& composer require drupal/devel
+# add composer dependencies here
+RUN composer require \
+drupal/token \
+drupal/bootstrap \
+drupal/ds \
+drupal/webform
 
-COPY ./msmtprc /etc/
-COPY ./apache_site_config.conf /etc/apache2/sites-available/000-default.conf
-COPY ./settings.php /var/www/html/web/sites/default/
+# add development dependencies
+RUN composer require --dev \
+drupal/admin_toolbar \
+drupal/devel
 
-RUN chown -R www-data:www-data web/sites web/modules web/themes
+# when you run bash, this is where you'll start, and where drush will be able to run from.
+WORKDIR /var/www/html/web
 
+COPY ./settings.php /var/www/html/web/sites/default
+
+# makes it so Apache user can access and modify these?
+# is the Apache user 
+RUN chown -R www-data:www-data sites modules themes
+
+# creates mountpoints?
 VOLUME ["/var/www/html/web/sites", "/var/www/html/web/modules", "/var/www/html/web/themes"]
+
+# for development only {
+	# set up php to use msmtp for sendmail
+	RUN echo 'sendmail_path = /usr/bin/msmtp -t' > /usr/local/etc/php/conf.d/mail.ini
+	# set up xdebug
+	# somewhere in this chain (php dockerfile most likely) xdebug was already installed!
+	RUN { \
+		echo 'zend_extension="/usr/local/lib/php/extensions/no-debug-non-zts-20160303/xdebug.so"'; \
+		echo 'xdebug.remote_enable=on'; \
+		echo 'xdebug.remote_autostart=off'; \
+	} > /usr/local/etc/php/conf.d/xdebug.ini 
+# }
