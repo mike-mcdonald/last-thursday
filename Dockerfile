@@ -33,13 +33,7 @@ RUN { \
 		echo 'opcache.enable_cli=1'; \
 	} > /usr/local/etc/php/conf.d/opcache-recommended.ini
 
-<<<<<<< HEAD
-COPY ./msmtprc /etc/
-COPY ./apache_site_config.conf /etc/apache2/sites-available/000-default.conf
-COPY ./sites/default/settings.php /var/www/html/sites/default/
-=======
 WORKDIR /var/www/html
->>>>>>> composer
 
 RUN apt-get update && apt-get install -y --no-install-recommends msmtp git postgresql-9.4 vim
 
