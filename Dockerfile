@@ -89,7 +89,7 @@ COPY ./settings.php /var/www/html/web/sites/default
 RUN chown -R www-data:www-data sites modules themes
 
 # creates mountpoints?
-VOLUME ["/var/www/html/web/sites", "/var/www/html/web/modules", "/var/www/html/web/themes"]
+VOLUME ["/var/www/html/web/sites", "/var/www/html/web/modules/custom", "/var/www/html/web/themes/custom"]
 
 # for development only {
 	# set up php to use msmtp for sendmail

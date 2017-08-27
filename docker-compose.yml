@@ -36,8 +36,8 @@ services:
     volumes:
       #- ./install:/var/www/html
       - sites:/var/www/html/web/sites
-      - modules:/var/www/html/web/modules
-      - themes:/var/www/html/web/themes
+      - ./modules:/var/www/html/web/modules/custom
+      - ./themes:/var/www/html/web/themes/custom
     restart: always
 
   mail:
