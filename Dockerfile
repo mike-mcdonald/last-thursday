@@ -92,14 +92,13 @@ RUN chown -R www-data:www-data sites modules themes
 # creates mountpoints?
 VOLUME ["/var/www/html/web/sites", "/var/www/html/web/modules/custom", "/var/www/html/web/themes/custom"]
 
-# for development only {
-	# set up php to use msmtp for sendmail
-	RUN echo 'sendmail_path = /usr/bin/msmtp -t' > /usr/local/etc/php/conf.d/mail.ini
-	# set up xdebug
-	# somewhere in this chain (php dockerfile most likely) xdebug was already installed!
-	RUN { \
-		echo 'zend_extension="/usr/local/lib/php/extensions/no-debug-non-zts-20160303/xdebug.so"'; \
-		echo 'xdebug.remote_enable=on'; \
-		echo 'xdebug.remote_autostart=off'; \
-	} > /usr/local/etc/php/conf.d/xdebug.ini 
-# }
+# for development only 
+# set up php to use msmtp for sendmail
+RUN echo 'sendmail_path = /usr/bin/msmtp -t' > /usr/local/etc/php/conf.d/mail.ini
+# set up xdebug
+RUN pecl install xdebug
+RUN { \
+	echo 'zend_extension="/usr/local/lib/php/extensions/no-debug-non-zts-20160303/xdebug.so"'; \
+	echo 'xdebug.remote_enable=on'; \
+	echo 'xdebug.remote_autostart=on'; \
+} > /usr/local/etc/php/conf.d/xdebug.ini 
