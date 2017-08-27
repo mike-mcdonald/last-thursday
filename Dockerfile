@@ -83,6 +83,7 @@ drupal/devel
 WORKDIR /var/www/html/web
 
 COPY ./settings.php /var/www/html/web/sites/default
+COPY ./apache_site_config.conf /etc/apache2/sites-available/000-default.conf
 
 # makes it so Apache user can access and modify these?
 # is the Apache user 
