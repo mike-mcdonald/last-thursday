@@ -31,13 +31,13 @@ services:
 
   drupal:
     build: .
-    ports:
-      - 8080:80
+    environment:
+      XDEBUG_CONFIG: remote_host=docker.for.mac.localhost
     volumes:
       #- ./install:/var/www/html
-      - sites:/var/www/html/sites
-      - modules:/var/www/html/modules
-      - themes:/var/www/html/themes
+      - sites:/var/www/html/web/sites
+      - modules:/var/www/html/web/modules
+      - themes:/var/www/html/web/themes
     restart: always
 
   mail:
