@@ -34,8 +34,6 @@ services:
     environment:
       XDEBUG_CONFIG: remote_host=docker.for.mac.localhost
     volumes:
-      #- ./install:/var/www/html
-      - sites:/var/www/html/web/sites
       - ./modules:/var/www/html/web/modules/custom
       - ./themes:/var/www/html/web/themes/custom
     restart: always
