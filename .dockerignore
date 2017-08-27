@@ -3,6 +3,6 @@
 !msmtprc
 !install.sh
 !apache_site_config.conf
-!sites
 !modules
-!proxy
+!themes
+!settings.php
