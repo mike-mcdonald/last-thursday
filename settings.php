@@ -773,5 +773,3 @@ $databases['default']['default'] = array (
   'namespace' => 'Drupal\\Core\\Database\\Driver\\pgsql',
   'driver' => 'pgsql',
 );
-$settings['install_profile'] = 'standard';
-$config_directories['sync'] = 'sites/default/files/config_xIZ4E0Gl1FaFUY7D9AoO9LsXxsBUBUhycowM-PRU-7lRaT-iUKN0NciuVYCZGQ0Dd-c0UI4kLw/sync';
