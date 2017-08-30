@@ -71,8 +71,7 @@ RUN ln -s /var/www/html/vendor/drush/drush/drush /usr/local/bin/drush
 RUN composer require \
 drupal/token \
 drupal/bootstrap \
-drupal/ds \
-drupal/webform
+drupal/ds
 
 # add development dependencies
 RUN composer require --dev \
