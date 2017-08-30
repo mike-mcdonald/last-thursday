@@ -92,6 +92,8 @@ RUN chown -R www-data:www-data sites modules themes
 VOLUME ["/var/www/html/web/sites", "/var/www/html/web/modules/custom", "/var/www/html/web/themes/custom"]
 
 # for development only 
+# set up msmtp config to point to mail container
+COPY ./msmtprc /etc/
 # set up php to use msmtp for sendmail
 RUN echo 'sendmail_path = /usr/bin/msmtp -t' > /usr/local/etc/php/conf.d/mail.ini
 # set up xdebug
