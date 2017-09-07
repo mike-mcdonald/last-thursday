@@ -82,6 +82,7 @@ drupal/devel
 # when you run bash, this is where you'll start, and where drush will be able to run from.
 WORKDIR /var/www/html/web
 
+COPY ./msmtprc /etc
 COPY ./settings.php /var/www/html/web/sites/default
 COPY ./apache_site_config.conf /etc/apache2/sites-available/000-default.conf
 
