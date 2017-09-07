@@ -66,6 +66,7 @@ RUN composer config repositories.drupal composer https://packages.drupal.org/8
 
 # install drush symlink so it can be accessed form anywhere in the container
 RUN ln -s /var/www/html/vendor/drush/drush/drush /usr/local/bin/drush
+RUN ln -s /var/www/html/vendor/drupal/console/bin/drupal /usr/local/bin/drupal
 
 # add composer dependencies here
 RUN composer require \
