@@ -1,0 +1,29 @@
+<?php
+/**
+ * @file
+ * Bootstrap sub-theme.
+ *
+ * Place your custom PHP code in this file.
+ */
+
+// Add a region variable to a block.
+// http://kristiankaa.dk/article/drupal8-region-specific-menu-theme-hook-suggestion
+function pbot_preprocess_block(&$variables) {
+    if (isset($variables["elements"]["#id"])) {
+        $block_id = $variables["elements"]["#id"];
+        $block = \Drupal\block\Entity\Block::load($block_id);
+
+        if ($block) {
+            $variables["content"]["#attributes"]["region"] = $block->getRegion();
+        }
+    }
+}
+
+// add a template suggestion based on region name
+// http://kristiankaa.dk/article/drupal8-region-specific-menu-theme-hook-suggestion
+function pbot_theme_suggestions_menu_alter(array &$suggestions, array $variables) {
+    if (isset($variables["attributes"]["region"])) {
+        $suggestions[] = "menu" . "__" . $variables["attributes"]["region"];
+        $suggestions[] = $variables["theme_hook_original"] . "__" . $variables["attributes"]["region"];
+    }
+}
