@@ -8,11 +8,15 @@ RUN set -ex \
 	&& buildDeps=' \
 		libjpeg62-turbo-dev \
 		libpng12-dev \
-		libpq-dev \
+		libpq-dev \		
+	' \
+	&& set -ex \
+	&& drupalDeps=' \
 		postgresql-9.4 \
+		git-core \
 	' \
 	&& apt-get update \
-	&& apt-get install -y --no-install-recommends $buildDeps \
+	&& apt-get install -y --no-install-recommends $buildDeps $drupalDeps \
 	&& rm -rf /var/lib/apt/lists/* \
 	&& docker-php-ext-configure gd \
 		--with-jpeg-dir=/usr \
@@ -38,20 +42,17 @@ RUN { \
 RUN set -ex \
 	&& buildDeps=' \
 		msmtp \
-		git \
 		vim \
 	' \
 	&& apt-get update \
 	&& apt-get install -y --no-install-recommends $buildDeps \
-	&& rm -rf /var/lib/apt/lists/* \
-	&& apt-get purge -y --auto-remove $buildDeps
-
+	&& rm -rf /var/lib/apt/lists/*
 
 WORKDIR /var/www/html
 
 # install composer (from composer website)
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
-	&& php -r "if (hash_file('SHA384', 'composer-setup.php') === '669656bab3166a7aff8a7506b8cb2d1c292f042046c5a994c43155c0be6190fa0355160742ab2e1c88d40d5be660b410') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;" \
+	do&& php -r "if (hash_file('SHA384', 'composer-setup.php') === '544e09ee996cdf60ece3804abc52599c22b1f40f4323403c44d44fdfdd586475ca9813a858088ffbc1f233e9b180f061') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;" \
 	&& php composer-setup.php \
 	&& php -r "unlink('composer-setup.php');" \
 	&& mv composer.phar /usr/local/bin/composer
@@ -79,19 +80,32 @@ RUN composer require --dev \
 drupal/admin_toolbar \
 drupal/devel
 
+RUN mkdir config \
+&& mkdir sync \
+&& chown -R www-data:www-data sync config
+
 # when you run bash, this is where you'll start, and where drush will be able to run from.
 WORKDIR /var/www/html/web
 
-COPY ./msmtprc /etc
 COPY ./settings.php /var/www/html/web/sites/default
 COPY ./apache_site_config.conf /etc/apache2/sites-available/000-default.conf
+
+# install this site from the profile in the profile directory
+# use docker-compose up db first to make sure this operates correctly.
+# DO NOT PERFORM THIS IN A PRODUCTION ENVIRONMENT
+COPY ./profile /var/www/html/web/profiles/docker
+#RUN drush si -y docker --account-name=pbotadmin --account-pass=Hf6F4OYFZ7qs
+# import whatever configuration we have
+COPY ./config /var/www/html/config
+#RUN drush cset -y system.site uuid "9904c9d4-7bf1-48a5-96b4-63bf2b7167f9"
+#RUN drupal config:import --directory="/var/www/html/config"
 
 # makes it so Apache user can access and modify these?
 # is the Apache user 
 RUN chown -R www-data:www-data sites modules themes
 
 # creates mountpoints?
-VOLUME ["/var/www/html/web/sites", "/var/www/html/web/modules/custom", "/var/www/html/web/themes/custom"]
+VOLUME ["/var/www/html/config", "/var/www/html/web/sites", "/var/www/html/web/modules/custom", "/var/www/html/web/themes/custom"]
 
 # for development only 
 # set up msmtp config to point to mail container

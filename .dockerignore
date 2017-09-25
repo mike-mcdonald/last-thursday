@@ -1,8 +1,1 @@
-*
-!Dockerfile
-!msmtprc
-!install.sh
-!apache_site_config.conf
-!modules
-!themes
-!settings.php
+
