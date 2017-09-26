@@ -69,6 +69,8 @@ RUN ln -s /var/www/html/vendor/drush/drush/drush /usr/local/bin/drush
 RUN ln -s /var/www/html/vendor/drupal/console/bin/drupal /usr/local/bin/drupal
 
 # add composer dependencies here
+# always add whatever dependencies your custom module may have here
+# Drupal won't be able to enable any custom module you have in your profile without them installed from here
 RUN composer require \
 drupal/token \
 drupal/bootstrap \
@@ -79,29 +81,56 @@ RUN composer require --dev \
 drupal/admin_toolbar \
 drupal/devel
 
+# create the sync directory referenced in the settings file.
+RUN mkdir sync \
+&& mkdir config
+
+RUN chown -R www-data:www-data sync config
+
+COPY ./apache_site_config.conf /etc/apache2/sites-available/000-default.conf
+COPY ./settings.php /var/www/html/web/sites/default/
+
+# setup SSL
+COPY ./certs/server.crt /etc/ssl/certs/server.crt
+COPY ./certs/server.key /etc/ssl/private/server.key
+COPY ./default-ssl.conf /etc/apache2/sites-available/default-ssl.conf
+RUN ln -s /etc/apache2/sites-available/default-ssl.conf /etc/apache2/sites-enabled/default-ssl.conf
+
 # when you run bash, this is where you'll start, and where drush will be able to run from.
 WORKDIR /var/www/html/web
 
-COPY ./msmtprc /etc
-COPY ./settings.php /var/www/html/web/sites/default
-COPY ./apache_site_config.conf /etc/apache2/sites-available/000-default.conf
+COPY ./modules /var/www/html/web/modules/custom
+COPY ./themes /var/www/html/web/themes/custom
+
+# install this site from the profile in the profile directory
+# use docker-compose up db first to make sure this operates correctly.
+# DO NOT PERFORM THIS IN A PRODUCTION ENVIRONMENT
+COPY ./profile /var/www/html/web/profiles/docker
+RUN drush si -y docker --account-name=pbotadmin --account-pass=Hf6F4OYFZ7qs
+# import whatever configuration we have
+COPY ./config /var/www/html/config
+RUN drush cset -y system.site uuid "c9140aff-d1b6-48b5-9e62-080f9b8bf92d"
+#RUN drupal config:import --directory="/var/www/html/config"
 
 # makes it so Apache user can access and modify these?
-# is the Apache user 
+# is the Apache user www-data?
 RUN chown -R www-data:www-data sites modules themes
 
-# creates mountpoints?
-VOLUME ["/var/www/html/web/sites", "/var/www/html/web/modules/custom", "/var/www/html/web/themes/custom"]
+# creates mountpoints (where you can attach volumes)?
+VOLUME ["/var/www/html/config", "/var/www/html/sync", "/var/www/html/web/modules/custom", "/var/www/html/web/themes/custom"]
 
 # for development only 
-# set up msmtp config to point to mail container
-COPY ./msmtprc /etc/
 # set up php to use msmtp for sendmail
+# msmtp was configured by ./msmtprc above to point to mailhog
 RUN echo 'sendmail_path = /usr/bin/msmtp -t' > /usr/local/etc/php/conf.d/mail.ini
+COPY ./msmtprc /etc/
+
 # set up xdebug
 RUN pecl install xdebug
 RUN { \
+	# magic number?
 	echo 'zend_extension="/usr/local/lib/php/extensions/no-debug-non-zts-20160303/xdebug.so"'; \
 	echo 'xdebug.remote_enable=on'; \
 	echo 'xdebug.remote_autostart=on'; \
+# php looks for configs in this conf.d directory 
 } > /usr/local/etc/php/conf.d/xdebug.ini 
