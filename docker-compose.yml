@@ -13,12 +13,6 @@
 version: '2'
 
 services:
-  proxy:
-    build: proxy
-    ports:
-      - 80:80
-    restart: always
-
   postgres:
     image: postgres:9.6
     ports:
@@ -31,11 +25,12 @@ services:
 
   drupal:
     build: .
+    ports:
+      - 80:80
     environment:
       XDEBUG_CONFIG: remote_host=docker.for.mac.localhost
     volumes:
-      - ./modules:/var/www/html/web/modules/custom
-      - ./themes:/var/www/html/web/themes/custom
+      - .:/var/www/html:cached
     restart: always
 
   mail:
