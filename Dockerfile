@@ -54,7 +54,7 @@ RUN set -ex \
 WORKDIR /var/www/html
 
 # copy the composer project you set up into the container
-ADD ./docroot .
+COPY . .
 
 # makes Apache point to the web folder and increases request size limits
 COPY ./apache_site_config.conf /etc/apache2/sites-available/000-default.conf
@@ -70,8 +70,8 @@ WORKDIR /var/www/html/web
 # use docker-compose up db first to make sure this operates correctly.
 # DO NOT PERFORM THIS IN A PRODUCTION ENVIRONMENT
 RUN drupal site:install seed --site-name="PBOT Drupal Seed" --account-name=pbotadmin --account-pass=Hf6F4OYFZ7qs
-RUN drupal config:override system.site uuid "9904c9d4-7bf1-48a5-96b4-63bf2b7167f9"
-RUN drupal config:import
+# RUN drupal config:override system.site uuid "9904c9d4-7bf1-48a5-96b4-63bf2b7167f9"
+# RUN drupal config:import
 
 # makes it so Apache user can access and modify these?
 # is the Apache user www-data?
