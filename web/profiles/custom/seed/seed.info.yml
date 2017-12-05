@@ -26,7 +26,6 @@ dependencies:
   - block
   - block_content
   - breakpoint
-  - calendar
   - ckeditor
   - color
   - comment
