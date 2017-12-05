@@ -20,6 +20,7 @@ services:
     volumes:
       - db:/var/lib/postgresql/data
     environment:
+      POSTGRES_DATABASE: seed
       POSTGRES_PASSWORD: example
     restart: always
 
