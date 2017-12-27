@@ -2611,7 +2611,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/mike-mcdonald/pbot-theme.git",
-                "reference": "947d2eed851f649bb3f75f2690b277d0ac370441"
+                "reference": "1e9cac000c5d2113b876e262a42c2a564cb3bbca"
             },
             "dist": {
                 "type": "git",
@@ -2624,7 +2624,7 @@
                 "source": "https://github.com/mike-mcdonald/pbot-theme/tree/master",
                 "issues": "https://github.com/mike-mcdonald/pbot-theme/issues"
             },
-            "time": "2017-11-21T22:59:31+00:00"
+            "time": "2017-12-05T23:02:38+00:00"
         },
         {
             "name": "pdx/pog_connect",

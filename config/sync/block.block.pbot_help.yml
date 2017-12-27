@@ -1,0 +1,20 @@
+uuid: 7ded9765-66ba-4c84-8450-61c2ef850017
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - pbot
+id: pbot_help
+theme: pbot
+region: help
+weight: 0
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }
