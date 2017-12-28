@@ -1,0 +1,20 @@
+uuid: bae06198-14a8-47ef-a3cf-af3c024316da
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - pbot
+id: pbot_messages
+theme: pbot
+region: highlighted
+weight: -3
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: Messages
+  provider: system
+  label_display: '0'
+visibility: {  }
