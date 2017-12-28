@@ -3,14 +3,11 @@
     "description": "Project template for Drupal 8 projects with composer",
     "type": "project",
     "license": "GPL-2.0+",
-    "authors": [
-        {
-            "name": "",
-            "role": ""
-        }
-    ],
-    "repositories": [
-        {
+    "authors": [{
+        "name": "",
+        "role": ""
+    }],
+    "repositories": [{
             "type": "composer",
             "url": "https://packages.drupal.org/8"
         },
@@ -25,6 +22,18 @@
         {
             "type": "vcs",
             "url": "git@bitbucket.org:mikesonaplane/pog_connect.git"
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "leaflet/leaflet",
+                "version": "1.0.2",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://github.com/Leaflet/Leaflet/archive/v1.0.2.zip",
+                    "type": "zip"
+                }
+            }
         }
     ],
     "require": {
@@ -37,8 +46,10 @@
         "drupal/core": "~8.4",
         "drupal/ctools": "^3.0",
         "drupal/ds": "^3.1",
+        "drupal/geocoder": "^2.0@alpha",
         "drupal/geofield": "^1.0@alpha",
         "drupal/geofield_map": "^1.25",
+        "drupal/leaflet": "~1.0",
         "drupal/pathauto": "^1.0",
         "drupal/token": "^1.0",
         "drush/drush": "~8.0|^9.0.0-beta8",
