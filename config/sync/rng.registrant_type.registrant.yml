@@ -1,0 +1,9 @@
+uuid: 061890da-bba0-4949-848d-ae76ae65d849
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: N2XiVSH0twwstcHPy12KxY_aN5kO27lbG7oUJU6uYug
+label: Registrant
+id: registrant
+description: ''

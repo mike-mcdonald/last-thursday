@@ -1,0 +1,24 @@
+uuid: beb0ffef-bbf4-46a3-bf75-383940df2697
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_area
+    - taxonomy.vocabulary.location
+  module:
+    - physical
+id: taxonomy_term.location.field_area
+field_name: field_area
+entity_type: taxonomy_term
+bundle: location
+label: Area
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    number: '100'
+    unit: ft2
+default_value_callback: ''
+settings: {  }
+field_type: physical_measurement

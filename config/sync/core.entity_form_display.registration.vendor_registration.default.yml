@@ -1,0 +1,36 @@
+uuid: c9014517-9ed4-4218-9478-edbdf7307961
+langcode: en
+status: true
+dependencies:
+  config:
+    - entity_browser.browser.location_select
+    - field.field.registration.vendor_registration.field_location
+    - rng.registration_type.vendor_registration
+  module:
+    - entity_browser
+    - field_layout
+    - layout_discovery
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings: {  }
+id: registration.vendor_registration.default
+targetEntityType: registration
+bundle: vendor_registration
+mode: default
+content:
+  field_location:
+    weight: 0
+    settings:
+      entity_browser: location_select
+      field_widget_display: rendered_entity
+      field_widget_edit: true
+      field_widget_remove: true
+      selection_mode: selection_append
+      field_widget_display_settings:
+        view_mode: default
+      open: false
+    third_party_settings: {  }
+    type: entity_browser_entity_reference
+    region: content
+hidden: {  }

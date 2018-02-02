@@ -1,0 +1,20 @@
+uuid: 3069c6e9-7d56-4867-bada-4660b1b774f1
+langcode: en
+status: true
+dependencies:
+  module:
+    - rng
+    - taxonomy
+id: registration.field_location
+field_name: field_location
+entity_type: registration
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

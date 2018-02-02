@@ -1,0 +1,21 @@
+uuid: 9828bc79-7b35-49b5-8be5-e5db6923e444
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_position
+    - taxonomy.vocabulary.location
+  module:
+    - geofield
+id: taxonomy_term.location.field_position
+field_name: field_position
+entity_type: taxonomy_term
+bundle: location
+label: Position
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: geofield

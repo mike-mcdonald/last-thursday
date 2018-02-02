@@ -1,0 +1,18 @@
+uuid: 810c2ff7-4389-4cf6-bb43-2dc81064f9ec
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.rng_status
+field_name: rng_status
+entity_type: node
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

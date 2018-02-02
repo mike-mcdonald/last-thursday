@@ -1,0 +1,7 @@
+uuid: 7a760594-1a22-42f7-b3f0-01ca76f56a27
+langcode: en
+status: true
+dependencies: {  }
+label: 'Vendor Registration'
+id: vendor_registration
+description: ''

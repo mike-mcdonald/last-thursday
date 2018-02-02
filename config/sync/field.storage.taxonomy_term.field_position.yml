@@ -1,0 +1,19 @@
+uuid: d6ef27dd-f605-41ef-a398-9c8eddff72d6
+langcode: en
+status: true
+dependencies:
+  module:
+    - geofield
+    - taxonomy
+id: taxonomy_term.field_position
+field_name: field_position
+entity_type: taxonomy_term
+type: geofield
+settings: {  }
+module: geofield
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
