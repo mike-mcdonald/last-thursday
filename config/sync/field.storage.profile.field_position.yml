@@ -1,0 +1,19 @@
+uuid: 7a38ce6b-8b67-4d84-87d2-6d560d1c029e
+langcode: en
+status: true
+dependencies:
+  module:
+    - geofield
+    - profile
+id: profile.field_position
+field_name: field_position
+entity_type: profile
+type: geofield
+settings: {  }
+module: geofield
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

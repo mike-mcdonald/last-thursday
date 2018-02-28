@@ -1,4 +1,6 @@
 module:
+  address: 0
+  auto_entitylabel: 0
   automated_cron: 0
   block: 0
   block_content: 0
@@ -11,17 +13,24 @@ module:
   contact: 0
   contextual: 0
   csv_serialization: 0
+  courier: 0
   ctools: 0
   datetime: 0
   datetime_range: 0
   dblog: 0
+  dynamic_entity_reference: 0
   dynamic_page_cache: 0
   editor: 0
+  entity: 0
+  entity_browser: 0
+  esri_geofield: 0
   field: 0
+  field_layout: 0
   field_ui: 0
   file: 0
   filter: 0
   geocoder: 0
+  geocoder_address: 0
   geocoder_field: 0
   geocoder_geofield: 0
   geofield: 0
@@ -30,19 +39,28 @@ module:
   history: 0
   image: 0
   layout_discovery: 0
+  leaflet: 0
+  leaflet_views: 0
   link: 0
+  mailsystem: 0
   media: 0
   menu_ui: 0
   node: 0
   options: 0
   page_cache: 0
   path: 0
+  pdx_geocoder: 0
+  physical: 0
+  profile: 0
   quickedit: 0
   rdf: 0
   rest: 0
+  rng: 0
+  rng_views: 0
   search: 0
   serialization: 0
   shortcut: 0
+  swiftmailer: 0
   system: 0
   taxonomy: 0
   telephone: 0
@@ -50,9 +68,12 @@ module:
   token: 0
   toolbar: 0
   tour: 0
+  unlimited_number: 0
   update: 0
   user: 0
   views_data_export: 0
+  veoa: 0
+  views_advanced_routing: 0
   views_ui: 0
   ds: 1
   menu_link_content: 1

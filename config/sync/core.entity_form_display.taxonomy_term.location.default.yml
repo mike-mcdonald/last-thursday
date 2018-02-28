@@ -1,0 +1,117 @@
+uuid: cd1902f4-483b-4ff4-8885-25b6ba22f710
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.location.field_address
+    - field.field.taxonomy_term.location.field_area
+    - field.field.taxonomy_term.location.field_position
+    - taxonomy.vocabulary.location
+  module:
+    - address
+    - bootstrap_layouts
+    - esri_geofield
+    - field_layout
+    - physical
+    - text
+third_party_settings:
+  field_layout:
+    id: bs_3col_stacked
+    settings:
+      layout:
+        wrapper: div
+        classes:
+          row: row
+        add_layout_class: 1
+        attributes: ''
+      regions:
+        top:
+          wrapper: div
+          classes:
+            col-sm-12: col-sm-12
+          add_region_classes: 1
+          attributes: ''
+        left:
+          wrapper: div
+          classes:
+            col-sm-4: col-sm-4
+          add_region_classes: 1
+          attributes: ''
+        middle:
+          wrapper: div
+          classes:
+            col-sm-12: col-sm-12
+          add_region_classes: 1
+          attributes: ''
+        right:
+          wrapper: div
+          classes:
+            col-sm-4: col-sm-4
+          add_region_classes: 1
+          attributes: ''
+        bottom:
+          wrapper: div
+          classes:
+            col-sm-12: col-sm-12
+          add_region_classes: 1
+          attributes: ''
+id: taxonomy_term.location.default
+targetEntityType: taxonomy_term
+bundle: location
+mode: default
+content:
+  description:
+    type: text_textarea
+    weight: 0
+    region: middle
+    settings:
+      placeholder: ''
+      rows: 5
+    third_party_settings: {  }
+  field_address:
+    type: address_default
+    weight: 0
+    region: top
+    settings:
+      default_country: null
+    third_party_settings: {  }
+  field_area:
+    weight: 32
+    settings:
+      default_unit: ''
+      allow_unit_change: true
+    third_party_settings: {  }
+    type: physical_measurement_default
+    region: right
+  field_position:
+    weight: -1
+    settings:
+      dimensions:
+        width: 100%
+        height: 30em
+      zoom:
+        start: '8'
+        focus: '16'
+        min: '1'
+        max: '20'
+      address_field:
+        field: field_address
+        hidden: 0
+        disabled: 0
+      center:
+        lat: '45.523452'
+        lon: '-122.676207'
+      basemap: streets-vector
+    third_party_settings: {  }
+    type: esri_geofield
+    region: top
+  name:
+    type: string_textfield
+    weight: -5
+    region: left
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  path: true

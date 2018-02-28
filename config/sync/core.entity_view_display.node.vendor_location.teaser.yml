@@ -1,0 +1,28 @@
+uuid: 15477210-ba73-40ba-a173-eb7ff953562b
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.vendor_location.body
+    - node.type.vendor_location
+  module:
+    - text
+    - user
+id: node.vendor_location.teaser
+targetEntityType: node
+bundle: vendor_location
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden: {  }

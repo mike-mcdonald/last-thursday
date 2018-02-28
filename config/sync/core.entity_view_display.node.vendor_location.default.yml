@@ -1,0 +1,36 @@
+uuid: 53da276b-8644-4b36-99ef-abee60efb096
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.vendor_location.body
+    - field.field.node.vendor_location.field_polygon
+    - node.type.vendor_location
+  module:
+    - geofield
+    - text
+    - user
+id: node.vendor_location.default
+targetEntityType: node
+bundle: vendor_location
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_polygon:
+    weight: 102
+    label: above
+    settings:
+      output_format: wkt
+    third_party_settings: {  }
+    type: geofield_default
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden: {  }

@@ -1,0 +1,29 @@
+uuid: 482f7613-192e-4bff-b3df-f4248ab7898d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.last_thursday_event.field_event_range
+    - node.type.last_thursday_event
+  module:
+    - datetime_range
+    - user
+id: node.last_thursday_event.default
+targetEntityType: node
+bundle: last_thursday_event
+mode: default
+content:
+  field_event_range:
+    weight: 102
+    label: above
+    settings:
+      separator: '-'
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: daterange_default
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden: {  }

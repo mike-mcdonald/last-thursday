@@ -1,0 +1,25 @@
+uuid: d675d293-d1d0-48c7-98c7-e37523b48bd5
+langcode: en
+status: true
+dependencies:
+  config:
+    - rng.event_type.node.last_thursday_event
+id: node.last_thursday_event.event_manager
+entity_type: node
+bundle: last_thursday_event
+machine_name: event_manager
+trigger: rng_event.register
+conditions:
+  operation:
+    id: rng_event_operation
+    operations:
+      'manage event': true
+actions:
+  registration_operations:
+    id: registration_operations
+    configuration:
+      operations:
+        create: true
+        view: true
+        update: true
+        delete: true
