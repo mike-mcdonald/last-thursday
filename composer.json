@@ -13,7 +13,7 @@
         },
         {
             "type": "vcs",
-            "url": "https://github.com/mike-mcdonald/pbot-theme"
+            "url": "git@bitbucket.org:mike-mcdonald/pbot-theme.git"
         },
         {
             "type": "vcs",
@@ -21,11 +21,11 @@
         },
         {
             "type": "vcs",
-            "url": "git@bitbucket.org:mikesonaplane/pog_connect.git"
+            "url": "git@bitbucket.org:mike-mcdonald/pog-connect.git"
 		},
 		{
 			"type": "vcs",
-			"url": "ssh://git@localhost:122/mike-mcdonald/esri_geofield.git"
+			"url": "git@bitbucket.org:mike-mcdonald/esri-geofield.git"
 		},
 		{
 			"type": "vcs",
