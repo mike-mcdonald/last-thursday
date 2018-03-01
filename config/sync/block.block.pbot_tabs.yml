@@ -4,6 +4,8 @@ status: true
 dependencies:
   theme:
     - pbot
+_core:
+  default_config_hash: Fa_FXWY_geIcWs8N3qGt6q3JuUIm2nb6OqnX7e7H2rs
 id: pbot_tabs
 theme: pbot
 region: header

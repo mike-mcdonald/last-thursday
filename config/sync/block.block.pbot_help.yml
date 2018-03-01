@@ -1,4 +1,4 @@
-uuid: 7ded9765-66ba-4c84-8450-61c2ef850017
+uuid: 57a18817-6467-46e4-ac94-aff5507dab63
 langcode: en
 status: true
 dependencies:
@@ -6,6 +6,8 @@ dependencies:
     - help
   theme:
     - pbot
+_core:
+  default_config_hash: mlIkrJeSfcWcJqG1X7-iKnTYkwTWNQBXEetp62Vw25I
 id: pbot_help
 theme: pbot
 region: help

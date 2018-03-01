@@ -1,9 +1,11 @@
-uuid: 0fc577fb-350a-40ba-ae13-071ea0aa9977
+uuid: c2e08545-254c-4d57-8929-be6068d931c4
 langcode: en
 status: true
 dependencies:
   theme:
     - pbot
+_core:
+  default_config_hash: lLvy8h7ndpGKfecVJfUDzh2ZISb2T4mzZHWZsfCAOPs
 id: pbot_primary_admin_actions
 theme: pbot
 region: header

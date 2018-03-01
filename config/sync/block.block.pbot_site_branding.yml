@@ -6,6 +6,8 @@ dependencies:
     - system
   theme:
     - pbot
+_core:
+  default_config_hash: 3GBSu3Gpe0X6nXYHf99wEze26RsrdpaZkJarF-cMFfY
 id: pbot_site_branding
 theme: pbot
 region: navbar_brand

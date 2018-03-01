@@ -8,6 +8,8 @@ dependencies:
     - system
   theme:
     - pbot
+_core:
+  default_config_hash: AJyhUFv-C8SuxueU38vvS9Rw7dDUHNVAlPPz0MY3O6s
 id: pbot_footer
 theme: pbot
 region: footer

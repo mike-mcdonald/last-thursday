@@ -8,6 +8,8 @@ dependencies:
     - system
   theme:
     - pbot
+_core:
+  default_config_hash: zRbIM4C7LftzoWNdAwJ2QlCxIOhM2F9tv4MT0WE7zUE
 id: pbot_main_navigation
 theme: pbot
 region: navigation_collapsible

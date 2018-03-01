@@ -1,4 +1,4 @@
-uuid: 6a2b73bc-1b3e-48cd-81ee-ebd3d82fe64e
+uuid: 9b7eeec2-f234-4e9e-960d-5f2895d6dea0
 langcode: en
 status: true
 dependencies:
@@ -7,6 +7,7 @@ dependencies:
     - image.style.thumbnail
     - media.type.image
   module:
+    - content_moderation
     - image
 _core:
   default_config_hash: 6Yw_Qc7BjR5JTvdpHMYqAjhoE_I2Q8fRVYCZPjfsERs
@@ -29,6 +30,12 @@ content:
     type: image_image
     weight: 26
     region: content
+  moderation_state:
+    type: moderation_state_default
+    weight: 100
+    settings: {  }
+    region: content
+    third_party_settings: {  }
   name:
     type: string_textfield
     weight: -5
@@ -36,12 +43,6 @@ content:
     settings:
       size: 60
       placeholder: ''
-    third_party_settings: {  }
-  path:
-    type: path
-    weight: 30
-    region: content
-    settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox

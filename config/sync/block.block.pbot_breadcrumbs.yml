@@ -6,6 +6,8 @@ dependencies:
     - system
   theme:
     - pbot
+_core:
+  default_config_hash: bavLXSBnhXYxZs-gj8sUfWFIcBGKvQv3C9KMjLo-J6g
 id: pbot_breadcrumbs
 theme: pbot
 region: header

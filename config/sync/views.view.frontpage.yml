@@ -1,4 +1,3 @@
-uuid: 5a228b20-229b-42a3-a42e-ad3abe3dd8d9
 langcode: en
 status: true
 dependencies:
@@ -8,12 +7,10 @@ dependencies:
   module:
     - node
     - user
-_core:
-  default_config_hash: GNfx9kN8-0_KgQ-xf3fjdXCCzZwXCI8T0IPFW8SIe7g
 id: frontpage
 label: Frontpage
 module: node
-description: 'All content promoted to the front page.'
+description: 'All content promoted to frontpage'
 tag: default
 base_table: node_field_data
 base_field: nid
@@ -30,16 +27,16 @@ display:
         options: {  }
       empty:
         area_text_custom:
-          admin_label: ''
-          content: 'No front page content has been created yet.'
-          empty: true
-          field: area_text_custom
-          group_type: group
           id: area_text_custom
-          label: ''
-          relationship: none
           table: views
-          tokenize: false
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: true
+          content: '<p>Welcome to [site:name]. No front page content has been created yet.</p><p>Would you like to <a href="profiles/contrib/lightning/README.md">view the README</a>?</p>'
+          label: ''
           plugin_id: text_custom
         node_listing_empty:
           admin_label: ''
@@ -119,7 +116,7 @@ display:
           group: 1
           id: status
           table: node_field_data
-          value: '1'
+          value: 'true'
           plugin_id: boolean
           entity_type: node
           entity_field: status

@@ -1,7 +1,0 @@
-status: '1'
-pattern: 'Last Thursday [node:field_event_range:start_date:custom:F Y]'
-php: 0
-escape: 0
-dependencies:
-  config:
-    - node.type.last_thursday_event

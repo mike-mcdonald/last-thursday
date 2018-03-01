@@ -9,6 +9,8 @@ dependencies:
     - user
   theme:
     - pbot
+_core:
+  default_config_hash: PoLMB_vggfCGlmCYbPC8Rcv2YDcMQJqQ_OblBaA0oxs
 id: pbot_user_account_menu
 theme: pbot
 region: navbar_end

@@ -6,6 +6,8 @@ dependencies:
     - system
   theme:
     - pbot
+_core:
+  default_config_hash: tZyAfFBZN22xAeBw4Mq1LGkeV3yitPBhMnD2_cJPFnY
 id: pbot_messages
 theme: pbot
 region: highlighted
