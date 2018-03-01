@@ -1,15 +1,22 @@
 module:
+  admin_toolbar: 0
+  admin_toolbar_tools: 0
+  adminimal_admin_toolbar: 0
   block: 0
   block_content: 0
+  bootstrap_layouts: 0
   breakpoint: 0
   ckeditor: 0
   config: 0
+  config_filter: 0
+  config_split: 0
   consumers: 0
   contact: 0
   contact_storage: 0
   content_moderation: 0
   contextual: 0
   crop: 0
+  csv_serialization: 0
   ctools: 0
   ctools_block: 0
   datetime: 0
@@ -17,6 +24,7 @@ module:
   diff: 0
   dropzonejs: 0
   editor: 0
+  email_registration: 0
   embed: 0
   entity_block: 0
   entity_browser: 0
@@ -46,6 +54,7 @@ module:
   lightning_search: 0
   lightning_workflow: 0
   link: 0
+  mailsystem: 0
   media: 0
   menu_ui: 0
   metatag: 0
@@ -61,6 +70,7 @@ module:
   path: 0
   quickedit: 0
   rdf: 0
+  rest: 0
   schemata: 0
   schemata_json_schema: 0
   search_api: 0
@@ -69,6 +79,7 @@ module:
   shortcut: 0
   simple_oauth: 0
   simple_oauth_extras: 0
+  swiftmailer: 0
   system: 0
   taxonomy: 0
   text: 0
@@ -76,6 +87,8 @@ module:
   toolbar: 0
   update: 0
   user: 0
+  views_bootstrap: 0
+  views_data_export: 0
   views_infinite_scroll: 0
   views_ui: 0
   workflows: 0
