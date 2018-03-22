@@ -1,0 +1,22 @@
+uuid: d0c025bb-a9c1-4e1f-93e3-33f129253043
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_geometry
+    - taxonomy.vocabulary.last_thursday_areas
+  module:
+    - geofield
+id: taxonomy_term.last_thursday_areas.field_geometry
+field_name: field_geometry
+entity_type: taxonomy_term
+bundle: last_thursday_areas
+label: Geometry
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  backend: geofield_backend_default
+field_type: geofield
