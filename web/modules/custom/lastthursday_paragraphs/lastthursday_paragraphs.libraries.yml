@@ -1,0 +1,11 @@
+hero-image:
+  css:
+    component:
+      css/hero-image.css:
+        minified: true
+  js:
+    js/hero-image.js:
+      minified: false
+  dependencies:
+    - core/jquery
+    - core/drupal

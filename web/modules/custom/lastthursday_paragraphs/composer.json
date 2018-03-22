@@ -1,0 +1,8 @@
+{
+  "name": "pdx/lastthursday_paragraphs",
+  "type": "drupal-module",
+  "description": "Drupal 8 module that creates aparagraphs used on the Last Thursdays on Alberta.",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "require": { }
+}
