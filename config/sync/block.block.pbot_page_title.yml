@@ -1,0 +1,29 @@
+uuid: da4b5ec7-bc41-45f9-99e6-06728312a53a
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+  theme:
+    - pbot
+_core:
+  default_config_hash: A8QJTjTsEdM90nCaiKiglEK5oHqoPeu3RHxUXtMo-Ko
+id: pbot_page_title
+theme: pbot
+region: header
+weight: 0
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      static_page: static_page
+    negate: true
+    context_mapping:
+      node: '@node.node_route_context:node'

@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.hero_overlay
+    - paragraphs.paragraphs_type.hero_image
+  module:
+    - options
+id: paragraph.hero_image.hero_overlay
+field_name: hero_overlay
+entity_type: paragraph
+bundle: hero_image
+label: Overlay
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: '0'
+default_value_callback: ''
+settings: {  }
+field_type: list_string

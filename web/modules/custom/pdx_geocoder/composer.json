@@ -1,0 +1,17 @@
+{
+  "name": "pdx/pdx_geocoder",
+  "type": "drupal-module",
+  "description": "Provider for geocoder which uses City of Portland GeocodeServer",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/pdx_geocoder",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/pdx_geocoder",
+    "source": "http://cgit.drupalcode.org/pdx_geocoder"
+  },
+  "require": {
+    "willdurand/geocoder": "^3.3",
+    "proj4php/proj4php": "dev-master"
+  }
+}

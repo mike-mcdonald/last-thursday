@@ -1,0 +1,22 @@
+uuid: 1ffcfd60-371c-4d65-a7a5-93af71ac2def
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - pbot
+_core:
+  default_config_hash: mlIkrJeSfcWcJqG1X7-iKnTYkwTWNQBXEetp62Vw25I
+id: pbot_help
+theme: pbot
+region: help
+weight: 0
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }

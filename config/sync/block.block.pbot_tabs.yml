@@ -1,0 +1,22 @@
+uuid: 8e62256f-91d1-4342-a9ec-b9e20d41499c
+langcode: en
+status: true
+dependencies:
+  theme:
+    - pbot
+_core:
+  default_config_hash: Fa_FXWY_geIcWs8N3qGt6q3JuUIm2nb6OqnX7e7H2rs
+id: pbot_tabs
+theme: pbot
+region: header
+weight: 0
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility: {  }

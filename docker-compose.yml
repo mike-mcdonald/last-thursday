@@ -13,33 +13,58 @@
 version: '2'
 
 services:
-  postgres:
-    image: postgres:9.6
-    ports:
-      - 5432:5432
-    volumes:
-      - db:/var/lib/postgresql/data
-    environment:
-      POSTGRES_DATABASE: seed
-      POSTGRES_PASSWORD: example
-    restart: always
-
-  drupal:
-    build: .
-    ports:
-      - 80:80
-    environment:
-      XDEBUG_CONFIG: remote_host=docker.for.mac.localhost
-    volumes:
-      - .:/var/www/html:cached
-    restart: always
-
   mail:
     image: mailhog/mailhog
     ports:
       - 1025:1025
       - 8025:8025
     restart: always
+
+  memcached:
+    image: memcached:alpine
+    environment:
+      # Memcached memory limit in megabytes
+      - MEMCACHED_MEMORY_LIMIT=128
+    ports:
+      - "11211:11211"
+    networks:
+      - cache-network
+
+  web:
+    image: nginx:latest
+    ports:
+      - 80:80
+    volumes:
+      - .:/var/www/html
+      - ./site.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - code-network
+      - cache-network
+      - mail-network
+
+  php:
+    build:
+      context: .
+      dockerfile: php.Dockerfile
+    environment:
+      XDEBUG_CONFIG: remote_host=docker.for.mac.localhost
+    volumes:
+      - .:/var/www/html
+      - ./log.conf:/usr/local/etc/php-fpm.d/zz-log.conf
+    networks:
+      - code-network
+      - cache-network
+      - mail-network
+
+networks:
+  code-network:
+    driver: bridge
+  db-network:
+    driver: bridge
+  cache-network:
+    driver: bridge
+  mail-network:
+    driver: bridge
 
 volumes:
   db:

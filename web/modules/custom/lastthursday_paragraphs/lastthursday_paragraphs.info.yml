@@ -1,0 +1,7 @@
+name: Last Thursday Paragraphs
+type: module
+description: A set of paragraphs for use on the Last Thursday website.
+core: 8.x
+package: Paragraphs
+dependencies:
+  - paragraphs

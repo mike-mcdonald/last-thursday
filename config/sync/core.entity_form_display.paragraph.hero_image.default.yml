@@ -1,0 +1,57 @@
+uuid: 77b2cadc-c5ce-4fae-a1c8-865d9b680c11
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.hero_image.hero_background_image
+    - field.field.paragraph.hero_image.hero_content
+    - field.field.paragraph.hero_image.hero_overlay
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.hero_image
+  module:
+    - content_moderation
+    - image
+    - paragraphs
+_core:
+  default_config_hash: _kvbIoSr9Egtk737onXxahJfoSv79pWqZzftuWStkGM
+id: paragraph.hero_image.default
+targetEntityType: paragraph
+bundle: hero_image
+mode: default
+content:
+  hero_background_image:
+    weight: 0
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  hero_content:
+    type: entity_reference_paragraphs
+    weight: 1
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+  hero_overlay:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  moderation_state:
+    type: moderation_state_default
+    weight: 100
+    settings: {  }
+    region: content
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
+  uid: true

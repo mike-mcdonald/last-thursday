@@ -1,0 +1,25 @@
+uuid: 2c9708f1-8349-4444-b338-95f825ae716e
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - pbot
+_core:
+  default_config_hash: 3GBSu3Gpe0X6nXYHf99wEze26RsrdpaZkJarF-cMFfY
+id: pbot_site_branding
+theme: pbot
+region: navbar_brand
+weight: 0
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  provider: system
+  label_display: '0'
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: true
+visibility: {  }

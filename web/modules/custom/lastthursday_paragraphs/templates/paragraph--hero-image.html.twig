@@ -1,0 +1,84 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display the Xeno Hero Paragraphs bundle.
+ *
+ * Available variables:
+ * - paragraph: Full paragraph entity.
+ *   - id: The paragraph ID.
+ *   - bundle: The type of the paragraph, for example, "image" or "text".
+ *   - authorid: The user ID of the paragraph author.
+ *   - createdtime: Formatted creation date. Preprocess functions can
+ *     reformat it by calling format_date() with the desired parameters on
+ *     $variables['paragraph']->getCreatedTime().
+ * - content: All paragraph items. Use {{ content }} to print them all,
+ *   or print a subset such as {{ content.field_example }}. Use
+ *   {{ content|without('field_example') }} to temporarily suppress the printing
+ *   of a given child element.
+ * - attributes: HTML attributes for the containing element.
+ *   The attributes.class element may contain one or more of the following
+ *   classes:
+ *   - paragraphs: The current template type (also known as a "theming hook").
+ *   - paragraphs--type-[type]: The current paragraphs type. For example, if the paragraph is an
+ *     "Image" it would result in "paragraphs--type--image". Note that the machine
+ *     name will often be in a short form of the human readable label.
+ *   - paragraphs--view-mode--[view_mode]: The View Mode of the paragraph; for example, a
+ *     preview would result in: "paragraphs--view-mode--preview", and
+ *     default: "paragraphs--view-mode--default".
+ * - view_mode: View mode; for example, "preview" or "full".
+ * - logged_in: Flag for authenticated user status. Will be true when the
+ *   current user is a logged-in member.
+ * - is_admin: Flag for admin user status. Will be true when the current user
+ *   is an administrator.
+ *
+ * Fields:
+ * - hero_background_image: Image field
+ * - hero_content: Paragraphs field
+ * - hero_overlay A select list with multiple options.
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{{ attach_library('lastthursday_paragraphs/hero-image') }}
+
+{# The template default set classes. #}
+{%
+set classes = [
+'paragraph',
+'paragraph--type--' ~ paragraph.bundle|clean_class,
+view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+]
+%}
+
+{# Renders Overlay field. #}
+{# Sets data attibute value from values in database. #}
+{% if content.hero_overlay|render %}
+  {% set overlay_level = content.hero_overlay['#items'].getString() %}
+  {% set overlay_levels = [
+    '1' == overlay_level ? '1',
+    '2' == overlay_level ? '2',
+    '3' == overlay_level ? '3',
+    '4' == overlay_level ? '4',
+    '5' == overlay_level ? '5',
+    '6' == overlay_level ? '6',
+    '7' == overlay_level ? '7',
+    '8' == overlay_level ? '8',
+    '9' == overlay_level ? '9',
+  ]
+  %}
+{% endif %}
+
+{# Prints div with classes, & content w/o img/invert/overlay/parallax fields. #}
+<div{{ attributes.addClass(classes).setAttribute('data-overlay', overlay_levels) }}>
+  {% if content.hero_background_image|render %}
+    <div class="paragraph--type--hero-image__image">
+      {{ content.hero_background_image }}
+      <div class="paragraph--type--hero-image__content">
+        {{ content|without('hero_background_image', 'hero_overlay') }}
+      </div>
+    </div>
+  {% endif %}
+</div>

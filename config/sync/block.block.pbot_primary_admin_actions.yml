@@ -1,0 +1,20 @@
+uuid: da794e4a-d392-4be2-8b20-40f302a3c3d0
+langcode: en
+status: true
+dependencies:
+  theme:
+    - pbot
+_core:
+  default_config_hash: lLvy8h7ndpGKfecVJfUDzh2ZISb2T4mzZHWZsfCAOPs
+id: pbot_primary_admin_actions
+theme: pbot
+region: header
+weight: -3
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }

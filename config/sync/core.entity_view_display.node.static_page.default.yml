@@ -1,0 +1,77 @@
+uuid: 5f503141-0939-4b85-a8b3-f28763162c5d
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.static_page
+  module:
+    - panelizer
+    - user
+third_party_settings:
+  panelizer:
+    enable: true
+    custom: true
+    allow: true
+    default: default
+    displays:
+      default:
+        blocks:
+          4bfe3aae-ba21-4411-8084-e27a619093c3:
+            id: 'entity_field:node:uid'
+            label: 'Authored by'
+            provider: ctools_block
+            label_display: '0'
+            formatter:
+              label: hidden
+              type: author
+              settings: {  }
+              third_party_settings: {  }
+              weight: 0
+              region: content
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+            region: content
+            weight: 0
+            uuid: 4bfe3aae-ba21-4411-8084-e27a619093c3
+          265f6c22-3bcd-46c1-b4c5-1345fbc73094:
+            id: 'entity_field:node:created'
+            label: 'Authored on'
+            provider: ctools_block
+            label_display: '0'
+            formatter:
+              label: hidden
+              type: timestamp
+              settings:
+                date_format: medium
+                custom_date_format: ''
+                timezone: ''
+              third_party_settings: {  }
+              weight: 0
+              region: content
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+            region: content
+            weight: 0
+            uuid: 265f6c22-3bcd-46c1-b4c5-1345fbc73094
+        id: panels_variant
+        label: Default
+        uuid: 460e6aaa-5398-4a31-a8ee-7efe2d3b363c
+        weight: 0
+        layout: layout_onecol
+        layout_settings: {  }
+        page_title: '[node:title]'
+        storage_type: ''
+        storage_id: ''
+        builder: ipe
+        pattern: panelizer
+id: node.static_page.default
+targetEntityType: node
+bundle: static_page
+mode: default
+content:
+  links:
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

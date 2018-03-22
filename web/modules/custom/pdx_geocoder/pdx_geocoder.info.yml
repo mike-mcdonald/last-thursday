@@ -1,0 +1,7 @@
+name: pdx_geocoder
+type: module
+description: Provider for geocoder which uses the City of Portland GeocodeServer
+core: 8.x
+package: PDX
+dependencies:
+  - geocoder

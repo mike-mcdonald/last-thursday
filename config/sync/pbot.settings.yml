@@ -1,0 +1,39 @@
+cdn_provider: ''
+_core:
+  default_config_hash: _5qrDuRmWmRVjW00si3U1s1NrgrocA4N653EYGRfgEE
+schemas:
+  bootstrap: 8000
+  pbot: 8000
+favicon:
+  mimetype: image/vnd.microsoft.icon
+  path: profiles/contrib/lightning/favicon.ico
+  url: 'http://localhost/profiles/contrib/lightning/favicon.ico'
+  use_default: 0
+features:
+  comment_user_picture: true
+  comment_user_verification: true
+  favicon: 1
+  node_user_picture: true
+logo:
+  path: profiles/contrib/lightning/lightning.png
+  url: ''
+  use_default: 1
+navbar_inverse: 1
+navbar_position: fixed-top
+region_wells:
+  navbar_brand: ''
+  navigation_collapsible: ''
+  navbar_form: ''
+  navbar_end: ''
+  header: ''
+  highlighted: ''
+  help: ''
+  content: ''
+  sidebar_first: ''
+  sidebar_second: ''
+  footer: ''
+fluid_container: 1
+table_responsive: '-1'
+table: ''
+modal_enabled: 1
+modal_jquery_ui_bridge: 0

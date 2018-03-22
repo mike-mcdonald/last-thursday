@@ -1,0 +1,38 @@
+uuid: 05aefd00-95df-48ed-9724-96e3ea91bb9e
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.account
+  module:
+    - system
+    - user
+  theme:
+    - pbot
+_core:
+  default_config_hash: PoLMB_vggfCGlmCYbPC8Rcv2YDcMQJqQ_OblBaA0oxs
+id: pbot_user_account_menu
+theme: pbot
+region: navbar_end
+weight: 0
+provider: null
+plugin: 'system_menu_block:account'
+settings:
+  id: 'system_menu_block:account'
+  label: 'User account menu'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+visibility:
+  user_role:
+    id: user_role
+    roles:
+      authenticated: authenticated
+      administrator: administrator
+      inspector: inspector
+      program_manager: program_manager
+      program_authority: program_authority
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

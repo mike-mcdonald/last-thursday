@@ -1,0 +1,38 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.button_icon
+field_name: button_icon
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: plus
+      label: Plus Sign
+    -
+      value: minus
+      label: Minus Sign
+    -
+      value: envelope
+      label: Envelope
+    -
+      value: pencil
+      label: Pencil
+    -
+      value: map-marker
+      label: Map Marker
+    -
+      value: trash
+      label: Trash Can
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

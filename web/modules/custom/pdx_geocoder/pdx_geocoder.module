@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains pdx_geocoder.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function pdx_geocoder_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the pdx_geocoder module.
+    case 'help.page.pdx_geocoder':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Provider for geocoder which uses City of Portland GeocodeServer') . '</p>';
+      return $output;
+
+    default:
+  }
+}

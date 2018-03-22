@@ -1,0 +1,46 @@
+<?php
+
+use Drupal\Component\Utility\UrlHelper;
+use Drupal\Core\Language\LanguageInterface;
+
+/**
+ * @file
+ * Last Thursday Paragraphs module file.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function lastthursday_paragraphs_theme($existing, $type, $theme, $path) {
+  return [
+    'paragraph__hero_image' => [
+      'base hook' => 'paragraph',
+    ],
+    'paragraph__button_link' => [
+      'variables' => [
+        'url' => NULL,
+        'text' => NULL,
+        'icon' => NULL,
+      ],
+    ],
+    'paragraph__custom_block' => [
+      'base hook' => 'paragraph',
+    ],
+  ];
+}
+
+/**
+ * Implements template_preprocess_HOOK().
+ */
+function template_preprocess_paragraph__button_link(&$variables) {
+  $language_interface = \Drupal::languageManager()
+    ->getCurrentLanguage();
+  $link = $variables['elements']['button_link'][0];
+
+  $variables['text'] = $link['#title'];
+  $variables['url'] = $link['#url']->toString();
+
+  if(!empty($variables['elements']['button_icon']['#items'])) {
+    $variables['icon'] = $variables['elements']['button_icon']['#items']->value;
+  }
+}

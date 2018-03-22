@@ -1,0 +1,14 @@
+uuid: 6f24afc5-f80c-4cd7-a594-07f409d39f0d
+name: 'Last Thursdays on Alberta'
+mail: pbot@pbot.gov
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /node/1
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en
+default_langcode: en
+_core:
+  default_config_hash: yXadRE77Va-G6dxhd2kPYapAvbnSvTF6hO4oXiOEynI

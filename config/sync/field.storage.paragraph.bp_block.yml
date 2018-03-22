@@ -1,0 +1,22 @@
+uuid: 82b4bbf8-ca1f-4244-b1a3-857d5d2b69ae
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - paragraphs
+_core:
+  default_config_hash: B89BLahkmj1nTu_KulE4Sb_kNlGQr0ixSq7X5MLZXNE
+id: paragraph.bp_block
+field_name: bp_block
+entity_type: paragraph
+type: entity_reference
+settings:
+  target_type: block_content
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

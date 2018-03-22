@@ -1,0 +1,26 @@
+uuid: a1138037-8cc6-42e5-8ed9-ca1d3e8763bf
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - pbot
+_core:
+  default_config_hash: zRbIM4C7LftzoWNdAwJ2QlCxIOhM2F9tv4MT0WE7zUE
+id: pbot_main_navigation
+theme: pbot
+region: navigation_collapsible
+weight: 0
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+visibility: {  }
