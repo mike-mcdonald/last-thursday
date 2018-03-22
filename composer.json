@@ -37,10 +37,6 @@
         "6": {
             "type": "composer",
             "url": "https://asset-packagist.org"
-        },
-        "xeno-hero": {
-            "type": "vcs",
-            "url": "https://github.com/xenomedia/xeno_hero"
         }
     },
     "require": {
