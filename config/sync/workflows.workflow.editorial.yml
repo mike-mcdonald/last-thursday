@@ -1,10 +1,7 @@
-uuid: 9e2e6ee2-9df1-4e7f-b848-a94ebe3f2517
+uuid: 2a3a18b7-06ac-407e-9eea-522af86d3802
 langcode: en
 status: true
 dependencies:
-  config:
-    - node.type.landing_page
-    - node.type.page
   module:
     - content_moderation
 _core:
@@ -29,11 +26,6 @@ type_settings:
       published: true
       default_revision: true
       weight: 0
-    review:
-      label: 'In review'
-      weight: -1
-      published: false
-      default_revision: false
   transitions:
     archive:
       label: Archive
@@ -60,7 +52,6 @@ type_settings:
       from:
         - draft
         - published
-        - review
     publish:
       label: Publish
       to: published
@@ -68,15 +59,4 @@ type_settings:
       from:
         - draft
         - published
-        - review
-    review:
-      label: Review
-      from:
-        - draft
-        - review
-      to: review
-      weight: 0
-  entity_types:
-    node:
-      - page
-      - landing_page
+  entity_types: {  }

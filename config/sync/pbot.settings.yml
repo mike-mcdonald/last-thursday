@@ -7,7 +7,7 @@ schemas:
 favicon:
   mimetype: image/vnd.microsoft.icon
   path: profiles/contrib/lightning/favicon.ico
-  url: 'https://ws19896.rose.portland.local/lastthursday/profiles/contrib/lightning/favicon.ico'
+  url: 'http://localhost/profiles/contrib/lightning/favicon.ico'
   use_default: 0
 features:
   comment_user_picture: true
@@ -18,6 +18,8 @@ logo:
   path: profiles/contrib/lightning/lightning.png
   url: ''
   use_default: 1
+navbar_inverse: 1
+navbar_position: fixed-top
 region_wells:
   navbar_brand: ''
   navigation_collapsible: ''
@@ -30,8 +32,8 @@ region_wells:
   sidebar_first: ''
   sidebar_second: ''
   footer: ''
+fluid_container: 1
 table_responsive: '-1'
 table: ''
-navbar_inverse: 1
-navbar_position: static-top
-fluid_container: 1
+modal_enabled: 1
+modal_jquery_ui_bridge: 0

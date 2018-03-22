@@ -1,12 +1,10 @@
-uuid: c1ccb231-0121-4597-964e-45ba947458a6
+uuid: 6d51fcac-bd27-4c98-8cfb-25258a5327c8
 langcode: en
 status: true
 dependencies:
   module:
     - node
     - panelizer
-_core:
-  default_config_hash: yxhkx498XU3RY3pDK0idjZeSAMn3tmVjyc2B3CZxF68
 id: node.panelizer
 field_name: panelizer
 entity_type: node
