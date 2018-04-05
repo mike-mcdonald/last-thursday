@@ -1,0 +1,22 @@
+uuid: 6f6db4e6-6943-4312-884c-a43bb37bda50
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_geometry
+    - taxonomy.vocabulary.vendor_location
+  module:
+    - geofield
+id: taxonomy_term.vendor_location.field_geometry
+field_name: field_geometry
+entity_type: taxonomy_term
+bundle: vendor_location
+label: Geometry
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  backend: geofield_backend_default
+field_type: geofield

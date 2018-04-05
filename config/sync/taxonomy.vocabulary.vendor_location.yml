@@ -1,0 +1,9 @@
+uuid: b12ca63d-28f3-42c9-856d-58bcc167ad6b
+langcode: en
+status: true
+dependencies: {  }
+name: 'Vendor Location'
+vid: vendor_location
+description: 'Use this vocabulary to create locations where vendors can set up'
+hierarchy: 0
+weight: 0
