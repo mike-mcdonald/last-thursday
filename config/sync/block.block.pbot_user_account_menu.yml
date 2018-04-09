@@ -6,7 +6,6 @@ dependencies:
     - system.menu.account
   module:
     - system
-    - user
   theme:
     - pbot
 _core:
@@ -24,15 +23,4 @@ settings:
   label_display: '0'
   level: 1
   depth: 0
-visibility:
-  user_role:
-    id: user_role
-    roles:
-      authenticated: authenticated
-      administrator: administrator
-      inspector: inspector
-      program_manager: program_manager
-      program_authority: program_authority
-    negate: false
-    context_mapping:
-      user: '@user.current_user_context:current_user'
+visibility: {  }

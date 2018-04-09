@@ -1,0 +1,14 @@
+uuid: 1e04bbbb-d26d-4be9-93b5-e63a588a59d7
+langcode: en
+status: true
+dependencies:
+  module:
+    - action
+id: registration_confirmation
+label: 'Registration Confirmation'
+type: system
+plugin: action_send_email_action
+configuration:
+  recipient: '[node:author:mail]'
+  subject: 'Last Thursday Event Registration Confirmation'
+  message: "[user:display-name],\r\n\r\nThis email is to confirm that you've registered for a Last Thursday event.  You may find this registration here: [node:url]\r\n\r\nAll of your registrations are listed on your account page here: [user:url]\r\n\r\nThank you for registering!"

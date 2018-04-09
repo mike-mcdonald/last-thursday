@@ -68,4 +68,7 @@ settings:
       bp_view:
         weight: 31
         enabled: false
+      xeno_hero:
+        weight: 32
+        enabled: false
 field_type: entity_reference_revisions

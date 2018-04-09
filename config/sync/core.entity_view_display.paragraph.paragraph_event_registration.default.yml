@@ -1,0 +1,30 @@
+uuid: 855709a1-5bdb-4186-9e12-26533b1764da
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.paragraph_event_registration.field_event
+    - field.field.paragraph.paragraph_event_registration.field_location
+    - paragraphs.paragraphs_type.paragraph_event_registration
+id: paragraph.paragraph_event_registration.default
+targetEntityType: paragraph
+bundle: paragraph_event_registration
+mode: default
+content:
+  field_event:
+    weight: 0
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_location:
+    weight: 1
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+hidden: {  }

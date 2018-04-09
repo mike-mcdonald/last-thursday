@@ -102,4 +102,7 @@ settings:
       hero_image:
         weight: 35
         enabled: false
+      xeno_hero:
+        weight: 36
+        enabled: false
 field_type: entity_reference_revisions
