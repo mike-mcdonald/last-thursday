@@ -1,12 +1,12 @@
 {
-    "name": "drupal-composer/drupal-project",
-    "description": "Project template for Drupal 8 projects with composer",
+    "name": "mike-mcdonald/last-thursday",
+    "description": "A drupal site for Last Thursdays on Alberta",
     "type": "project",
     "license": "GPL-2.0+",
     "authors": [
         {
-            "name": "",
-            "role": ""
+            "name": "Mike McDonald",
+            "role": "maintainer"
         }
     ],
     "repositories": {
@@ -54,6 +54,8 @@
         "drupal/bootstrap_paragraphs": "^2.0@beta",
         "drupal/config_filter": "^1.1",
         "drupal/config_split": "^1.3",
+        "drupal/config_direct_save": "^1.0",
+        "drupal/config_installer": "^1.0",
         "drupal/console": "^1.0.2",
         "drupal/content_sync": "^1.2",
         "drupal/core": "^8.4",
@@ -85,11 +87,19 @@
         "roave/security-advisories": "dev-master",
         "webflo/drupal-finder": "^1.0.0",
         "webmozart/path-util": "^2.3",
-        "wikimedia/composer-merge-plugin": "^1.4"
+        "wikimedia/composer-merge-plugin": "^1.4",
+        "rvtraveller/qs-composer-installer": "^1.1",
+        "drush-ops/behat-drush-endpoint": "^8",
+        "pantheon-systems/quicksilver-pushback": "~1",
+        "webflo/drupal-core-strict": "^8",
+        "zaporylie/composer-drupal-optimizations": "^1.0"
     },
     "require-dev": {
+        "behat/behat": "3.*",
         "behat/mink": "~1.7",
+        "behat/mink-extension": "^2.2",
         "behat/mink-goutte-driver": "~1.2",
+        "drupal/drupal-extension": "^3.1",
         "jcalderonzumba/gastonjs": "~1.0.2",
         "jcalderonzumba/mink-phantomjs-driver": "~0.3.1",
         "mikey179/vfsstream": "~1.2",
@@ -102,7 +112,12 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {
-        "sort-packages": true
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "platform": {
+            "php": "7.0.8"
+        }
     },
     "autoload": {
         "classmap": [
@@ -110,7 +125,15 @@
         ]
     },
     "scripts": {
+        "build-assets": [
+            "@prepare-for-pantheon",
+            "composer install --optimize-autoloader --no-dev"
+        ],
+        "lint": "find web/modules/custom web/themes/custom -name '*.php' -exec php -l {} \\;",
+        "code-sniff": "echo 'No code sniff step defined.'",
+        "unit-test": "echo 'No unit test step defined.'",
         "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
+        "prepare-for-pantheon": "DrupalProject\\composer\\ScriptHandler::prepareForPantheon",
         "pre-install-cmd": [
             "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
         ],
@@ -118,9 +141,16 @@
             "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
         ],
         "post-install-cmd": [
+            "@drupal-scaffold",
             "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
         ],
         "post-update-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
+            "find .circleci/scripts/pantheon/ -type f | xargs chmod 755",
+            "find tests/scripts/ -type f | xargs chmod 755"
+        ],
+        "post-create-project-cmd": [
+            "@drupal-scaffold",
             "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
         ]
     },
@@ -144,6 +174,29 @@
             ],
             "drush/contrib/{$name}": [
                 "type:drupal-drush"
+            ]
+        },
+        "build-env": {
+            "install-cms": [
+                "drush site-install standard --account-mail={account-mail} --account-name={account-name} --account-pass={account-pass} --site-mail={site-mail} --site-name={site-name} --yes",
+                "drush pm-enable config_direct_save simple_block --yes",
+                "drush pm-uninstall block_content --yes"
+            ],
+            "export-configuration": "drush config-export --yes"
+        },
+        "drupal-scaffold": {
+            "source": "https://raw.githubusercontent.com/pantheon-systems/drops-8-scaffolding/{version}/{path}",
+            "includes": [
+                "sites/default/default.services.pantheon.preproduction.yml",
+                "sites/default/settings.pantheon.php"
+            ],
+            "excludes": [
+                ".csslintrc",
+                ".editorconfig",
+                ".eslintignore",
+                ".eslintrc.json",
+                ".htaccess",
+                "web.config"
             ]
         },
         "merge-plugin": {
