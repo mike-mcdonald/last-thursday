@@ -1,4 +1,4 @@
-uuid: d6082d07-c7f8-4ddd-96d6-12cba9a882b8
+uuid: 6ea3087c-7180-4131-860e-ffe93e6aa12f
 langcode: en
 status: true
 dependencies:
@@ -655,18 +655,16 @@ display:
       footer: {  }
       empty:
         area:
-          id: area
+          id: area_text_custom
           table: views
-          field: area
+          field: area_text_custom
           relationship: none
           group_type: group
-          admin_label: ''
+          admin_label: 'No log messages available.'
           empty: true
           tokenize: false
-          content:
-            value: 'No log messages available.'
-            format: basic_html
-          plugin_id: text
+          content: 'No log messages available.'
+          plugin_id: text_custom
       relationships:
         uid:
           id: uid
@@ -685,7 +683,7 @@ display:
           1: AND
       css_class: admin-dblog
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
@@ -702,7 +700,7 @@ display:
       display_extenders: {  }
       path: admin/reports/dblog
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'

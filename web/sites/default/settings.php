@@ -36,3 +36,4 @@ if (file_exists($local_settings)) {
  * modifying settings.php.
  */
 $settings['install_profile'] = 'standard';
+$config_directories['sync'] = 'C:\\dev\\last-thursday\\config\\sync';

@@ -1,4 +1,4 @@
-uuid: f97c6e97-6363-4710-ad14-eeb412ead253
+uuid: 4a9ac895-fc53-4a13-a273-8997c708933c
 langcode: en
 status: true
 dependencies:
@@ -9,5 +9,5 @@ _core:
 id: node_unpublish_action
 label: 'Unpublish content'
 type: node
-plugin: node_unpublish_action
+plugin: 'entity:unpublish_action:node'
 configuration: {  }

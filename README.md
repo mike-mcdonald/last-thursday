@@ -1,46 +1,78 @@
-# drupal-docker-seed
-Seed repository for starting Drupal sites using Docker.
+# Example Drops 8 Composer
 
-# Installing Docker
-## Windows 7 and Server < 2012
-Download Docker Toolbox from here: https://www.docker.com/products/docker-toolbox
+[![CircleCI](https://circleci.com/gh/mike-mcdonald/last-thursday.svg?style=svg)](https://circleci.com/gh/mike-mcdonald/last-thursday)
+[![Pantheon example-drops-8-composer](https://img.shields.io/badge/dashboard-drops_8-yellow.svg)](https://dashboard.pantheon.io/sites/ae82bd93-f8ac-428b-bb30-5fc62f9a934c#dev/code)
+[![Dev Site](https://img.shields.io/badge/site-drops_8-blue.svg)](http://dev-lastthurspdx.pantheonsite.io/)
 
-This will install Docker using a variety of tools.  Docker will run VMs using Virtualbox that creates machines using a special Linux distribution with Docker tools installed on it.
+This repository is a start state for a Composer-based Drupal workflow with Pantheon. It is meant to be copied by the the [Terminus Build Tools Plugin](https://github.com/pantheon-systems/terminus-build-tools-plugin) which will set up for you a brand new
 
-You'll also have some command line utilities installed in your PATH with this installation.  You can access docker commands in two ways:
-1. Use the Docker Quickstart Terminal to boot into a session on the Virtual Machine where you can run Docker commands like you will see in documentation.
-2. Use docker-machine commands to set your current terminal environment so that it will run Docker commands against the machine.
+* GitHub repo
+* Free Pantheon sandbox site
+* A CircleCI configuration to run tests and push from the source repo (GitHub) to Pantheon.
 
-There are benefits to both options.  The second option is more advanced and takes more effort, but it's concepts and workflow will also be useful when you lauch Docker into cloud environments.
+For more background information on this style of workflow, see the [Pantheon documentation](https://pantheon.io/docs/guides/github-pull-requests/).
 
-## Windows 10 and Server >= 2012
-Download and install Docker from here: https://store.docker.com/editions/community/docker-ce-desktop-windows
 
-Docker can run natively on these Windows environments.  This will install tools into your PATH and you will be all set to go!
+## Installation
 
-## Mac
-Download and install Docker from here: https://store.docker.com/editions/community/docker-ce-desktop-mac
+### Prerequisites
 
-Docker can run natively on MAc environments.  This will install tools into your PATH and you will be all set to go! 
+Before running the `terminus build:project:create` command, make sure you have all of the prerequisites:
 
-# Using this repository
-From the directory you've cloned this repository into, run the following command: "docker-compose up"
- 
-Navigate to localhost:8080 (native Docker) or (probably) 192.168.99.100:8080 (Docker Toolbox).
+* [A Pantheon account](https://dashboard.pantheon.io/register)
+* [Terminus, the Pantheon command line tool](https://pantheon.io/docs/terminus/install/)
+* [The Terminus Build Tools Plugin](https://github.com/pantheon-systems/terminus-build-tools-plugin)
+* An account with GitHub and an authentication token capable of creating new repos.
+* An account with CircleCI and an authentication token.
 
-Install Drupal as you are used to doing.  You'll have a Postgres database available with the following configuration changes:
-* Database name: postgres
-* Database username: postgres
-* Database password: example
-* ADVANCED OPTIONS: Database host: postgres
+You may find it easier to export the GitHub and CircleCI tokens as variables on your command line where the Build Tools Plugin can detect them automatically:
 
-## What happened?
-Docker set up a few containers to help you out and this Dockerfile copies some configuration options over to get everything set up.
-There is a Postgres database, a container to absorb and display e-mails using mailhog, and the Drupal web server (8.3.x on an Apache web server).
+```
+export GITHUB_TOKEN=[REDACTED]
+export CIRCLE_TOKEN=[REDACTED]
+```
 
-# More Docker information
-* https://www.docker.com/what-docker
+### One command setup:
 
-* https://docs.docker.com/
+Once you have all of the prerequisites in place, you can create your copy of this repo with one command:
 
-* https://github.com/docker/labs/tree/master
+```
+terminus build:project:create pantheon-systems/example-drops-8-composer my-new-site --team="Agency Org Name"
+```
+
+The parameters shown here are:
+
+* The name of the source repo, `pantheon-systems/example-drops-8-composer`. If you are interest in other source repos like WordPress, see the [Terminus Build Tools Plugin](https://github.com/pantheon-systems/terminus-build-tools-plugin).
+* The machine name to be used by both the soon-to-be-created Pantheon site and GitHub repo. Change `my-new-site` to something meaningful for you.
+* The `--team` flag is optional and refers to a Pantheon organization. Pantheon organizations are often web development agencies or Universities. Setting this parameter causes the newly created site to go within the given organization. Run the Terminus command `terminus org:list` to see the organizations you are a member of. There might not be any.
+
+
+## Important files and directories
+
+### `/web`
+
+Pantheon will serve the site from the `/web` subdirectory due to the configuration in `pantheon.yml`, facilitating a Composer based workflow. Having your website in this subdirectory also allows for tests, scripts, and other files related to your project to be stored in your repo without polluting your web document root.
+
+#### `/config`
+
+One of the directories moved to the git root is `/config`. This directory holds Drupal's `.yml` configuration files. In more traditional repo structure these files would live at `/sites/default/config/`. Thanks to [this line in `settings.php`](https://github.com/pantheon-systems/example-drops-8-composer/blob/54c84275cafa66c86992e5232b5e1019954e98f3/web/sites/default/settings.php#L19), the config is moved entirely outside of the web root.
+
+### `composer.json`
+
+If you are just browsing this repository on GitHub, you may notice that the files of Drupal core itself are not included in this repo.  That is because Drupal core and contrib modules are installed via Composer and ignored in the `.gitignore` file. Specific contrib modules are added to the project via `composer.json` and `composer.lock` keeps track of the exact version of each modules (or other dependency). Modules, and themes are placed in the correct directories thanks to the `"installer-paths"` section of `composer.json`. `composer.json` also includes instructions for `drupal-scaffold` which takes care of placing some individual files in the correct places like `settings.pantheon.php`.
+
+## Behat tests
+
+So that CircleCI will have some test to run, this repository includes a configuration of Behat tests. You can add your own `.feature` files within `/tests/features/`.
+
+## Updating your site
+
+When using this repository to manage your Drupal site, you will no longer use the Pantheon dashboard to update your Drupal version. Instead, you will manage your updates using Composer. Ensure your site is in Git mode, clone it locally, and then run composer commands from there.  Commit and push your files back up to Pantheon as usual.
+
+
+
+
+
+
+
+

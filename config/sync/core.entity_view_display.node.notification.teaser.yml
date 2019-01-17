@@ -1,0 +1,31 @@
+uuid: 5cf35105-4633-4cc1-9b5b-618ebf8224c2
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.notification.field_action_link
+    - field.field.node.notification.field_notification_severity
+    - field.field.node.notification.field_summary
+    - node.type.notification
+  module:
+    - user
+id: node.notification.teaser
+targetEntityType: node
+bundle: notification
+mode: teaser
+content:
+  content_moderation_control:
+    weight: -20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_action_link: true
+  field_notification_severity: true
+  field_summary: true

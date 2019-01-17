@@ -1,4 +1,4 @@
-uuid: be92818a-b411-4e99-a5bf-1d68efb92a51
+uuid: 2e7816d9-bf8e-46ac-8182-0517b87fb5e2
 langcode: en
 status: true
 dependencies:
@@ -9,5 +9,5 @@ _core:
 id: node_save_action
 label: 'Save content'
 type: node
-plugin: node_save_action
+plugin: 'entity:save_action:node'
 configuration: {  }

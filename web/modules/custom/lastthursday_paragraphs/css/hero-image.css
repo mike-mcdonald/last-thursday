@@ -7,6 +7,11 @@
 .paragraph--type--hero-image {
   position: relative;
   height: 60vh;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
 }
 
 .paragraph--type--hero-image__content {
@@ -46,7 +51,7 @@
 }
 
 .paragraph--type--hero-image__image .field--name-hero-background-image {
-    margin: 0;
+  margin: 0;
 }
 
 .paragraph--type--hero-image__image img {
@@ -116,10 +121,6 @@
 
 /* Parallax. */
 
-.paragraph--type--hero-image {
-  overflow: hidden;
-}
-
 .paragraph--type--hero-image .paragraph--type--hero-image__image {
   transition: none 0s ease 0s !important;
 }
@@ -166,6 +167,7 @@
   0% {
     transform: scale(1);
   }
+
   100% {
     transform: scale(1.1);
   }
@@ -175,6 +177,7 @@
   0% {
     transform: scale(1);
   }
+
   100% {
     transform: scale(1.1);
   }
@@ -184,6 +187,7 @@
   0% {
     transform: scale(1);
   }
+
   100% {
     transform: scale(1.1);
   }
@@ -193,6 +197,7 @@
   0% {
     transform: scale(1);
   }
+
   100% {
     transform: scale(1.1);
   }
@@ -202,6 +207,7 @@
   0% {
     transform: scale(1);
   }
+
   100% {
     transform: scale(1.1);
   }

@@ -1,0 +1,23 @@
+<?php
+
+/*
+ * Implemenets hook_theme()
+ */
+function esri_geofield_theme() {
+  return [
+    'esri_geofield_widget' => [
+      'variables' => [
+        'mapid' => NULL,
+        'width' => '100%',
+        'height' => '40vh',
+      ],
+    ],
+    'esri_geofield_formatter' => [
+      'variables' => [
+        'mapid' => NULL,
+        'width' => '100%',
+        'height' => '40vh',
+      ],
+    ]
+  ];
+}

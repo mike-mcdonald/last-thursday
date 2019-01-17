@@ -1,9 +1,13 @@
-uuid: 5a37665f-2298-4576-acf0-d5ff57e1816e
+uuid: 637c16e1-1fba-4432-91e3-7eefa73ce525
 langcode: en
 status: false
 dependencies:
   module:
+    - lightning_core
     - user
+third_party_settings:
+  lightning_core:
+    description: ''
 _core:
   default_config_hash: mQIF_foYjmnVSr9MpcD4CTaJE_FpO1AyDd_DskztGhM
 id: user.full
