@@ -21,7 +21,6 @@ third_party_settings:
         - member_for
         - user_assigned_to_review_entity_view_1
         - user_assigned_to_review_entity_view_2
-        - masquerade
   panelizer:
     enable: false
     custom: false
@@ -94,11 +93,6 @@ targetEntityType: user
 bundle: user
 mode: full
 content:
-  masquerade:
-    weight: 3
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   member_for:
     weight: 0
     region: content

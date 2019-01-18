@@ -17,7 +17,6 @@ third_party_settings:
     regions:
       content:
         - member_for
-        - masquerade
   panelizer:
     enable: false
     custom: false
@@ -90,11 +89,6 @@ targetEntityType: user
 bundle: user
 mode: default
 content:
-  masquerade:
-    weight: 50
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   member_for:
     weight: 5
     region: content
