@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "975dc9dcfcf329d9b461c7fb5551303a",
+    "content-hash": "ad71df3d96050290f342d64ff9fb1a10",
     "packages": [
         {
             "name": "acquia/lightning",
@@ -67,6 +67,9 @@
                 ],
                 "patchLevel": {
                     "drupal/core": "-p2"
+                },
+                "patches_applied": {
+                    "Lightning install failure with drupal 8.6 and drush 8": "https://www.drupal.org/files/issues/2018-11-16/lightning_installation-issue_3011850-2-D8.patch"
                 }
             },
             "autoload": {

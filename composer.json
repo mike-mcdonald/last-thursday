@@ -213,6 +213,9 @@
             },
             "drupal/menu_token": {
                 "2948260 - Tokens not substituted in query string": "https://www.drupal.org/files/issues/2018-09-21/2988939-allow-query-parameters-12.diff"
+            },
+            "acquia/lightning": {
+                "Lightning install failure with drupal 8.6 and drush 8": "https://www.drupal.org/files/issues/2018-11-16/lightning_installation-issue_3011850-2-D8.patch"
             }
         },
         "merge-plugin": {
