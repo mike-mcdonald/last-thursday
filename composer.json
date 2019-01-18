@@ -117,10 +117,36 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {
-        "sort-packages": true
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "platform": {
+            "php": "7.0.8"
+        }
     },
     "scripts": {
-        "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold"
+        "build-assets": [
+            "@prepare-for-pantheon",
+            "composer install --optimize-autoloader --no-dev"
+        ],
+        "lint": "find web/modules/custom web/themes/custom -name '*.php' -exec php -l {} \\;",
+        "code-sniff": "echo 'No code sniff step defined.'",
+        "unit-test": "echo 'No unit test step defined.'",
+        "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
+        "prepare-for-pantheon": "DrupalProject\\composer\\ScriptHandler::prepareForPantheon",
+        "post-install-cmd": [
+            "@drupal-scaffold",
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+        ],
+        "post-update-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
+            "find .circleci/scripts/pantheon/ -type f | xargs chmod 755",
+            "find tests/scripts/ -type f | xargs chmod 755"
+        ],
+        "post-create-project-cmd": [
+            "@drupal-scaffold",
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+        ]
     },
     "extra": {
         "_readme": [
@@ -130,6 +156,29 @@
             "You can read more about this composer repository at:",
             "https://www.drupal.org/node/2718229"
         ],
+        "build-env": {
+            "install-cms": [
+                "drush site-install standard --account-mail={account-mail} --account-name={account-name} --account-pass={account-pass} --site-mail={site-mail} --site-name={site-name} --yes",
+                "drush pm-enable config_direct_save simple_block --yes",
+                "drush pm-uninstall block_content --yes"
+            ],
+            "export-configuration": "drush config-export --yes"
+        },
+        "drupal-scaffold": {
+            "source": "https://raw.githubusercontent.com/pantheon-systems/drops-8-scaffolding/{version}/{path}",
+            "includes": [
+                "sites/default/default.services.pantheon.preproduction.yml",
+                "sites/default/settings.pantheon.php"
+            ],
+            "excludes": [
+                ".csslintrc",
+                ".editorconfig",
+                ".eslintignore",
+                ".eslintrc.json",
+                ".htaccess",
+                "web.config"
+            ]
+        },
         "installer-types": [
             "bower-asset",
             "npm-asset"
