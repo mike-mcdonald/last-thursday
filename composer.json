@@ -85,11 +85,16 @@
         "drupal/views_data_export": "^1.0@beta",
         "drupal/viewsreference": "^1.2",
         "drupal/webform": "^5.0@RC",
-        "drush/drush": "9.3.0",
+        "drush/drush": "~8",
         "roave/security-advisories": "dev-master",
         "webflo/drupal-finder": "^1.0.0",
         "webmozart/path-util": "^2.3",
-        "wikimedia/composer-merge-plugin": "^1.4"
+        "wikimedia/composer-merge-plugin": "^1.4",
+        "rvtraveller/qs-composer-installer": "^1.1",
+        "drush-ops/behat-drush-endpoint": "^8",
+        "pantheon-systems/quicksilver-pushback": "~1",
+        "webflo/drupal-core-strict": "^8",
+        "zaporylie/composer-drupal-optimizations": "^1.0"
     },
     "require-dev": {
         "behat/behat": "^3.4",
