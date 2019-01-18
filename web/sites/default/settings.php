@@ -19,9 +19,9 @@ include __DIR__ . "/settings.pantheon.php";
 /**
  * Place the config directory outside of the Drupal root.
  */
-$config_directories = array(
-  CONFIG_SYNC_DIRECTORY => dirname(DRUPAL_ROOT) . '/config',
-);
+$config_directories = [
+  CONFIG_SYNC_DIRECTORY => dirname(DRUPAL_ROOT) . '/config/sync',
+];
 
 /**
  * If there is a local settings file, then include it
@@ -36,4 +36,3 @@ if (file_exists($local_settings)) {
  * modifying settings.php.
  */
 $settings['install_profile'] = 'standard';
-$config_directories['sync'] = 'C:\\dev\\last-thursday\\config\\sync';
