@@ -1,0 +1,39 @@
+uuid: 301466cf-8917-48e4-bfc4-1aa90487b18c
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.categories_on_a_node
+  module:
+    - node
+    - views
+  theme:
+    - cloudy
+id: views_block__categories_on_a_node_block_1
+theme: cloudy
+region: content
+weight: 4
+provider: null
+plugin: 'views_block:categories_on_a_node-block_1'
+settings:
+  id: 'views_block:categories_on_a_node-block_1'
+  label: Categories
+  provider: views
+  label_display: visible
+  views_label: Categories
+  items_per_page: none
+  context_mapping: {  }
+visibility:
+  node_type:
+    id: node_type
+    bundles:
+      city_service: city_service
+      guide: guide
+      alert: alert
+      event: event
+      information: information
+      news: news
+      notification: notification
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

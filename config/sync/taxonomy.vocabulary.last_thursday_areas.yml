@@ -1,9 +1,0 @@
-uuid: 9ada042e-86e3-4ece-864e-303d6d561354
-langcode: en
-status: true
-dependencies: {  }
-name: 'Last Thursday Areas'
-vid: last_thursday_areas
-description: 'Use this vocabulary to create distinguish areas on Alberta St.'
-hierarchy: 0
-weight: 0

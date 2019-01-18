@@ -1,7 +1,17 @@
-uuid: 2a3a18b7-06ac-407e-9eea-522af86d3802
+uuid: d3227574-01cb-4000-bfee-8530becbe516
 langcode: en
 status: true
 dependencies:
+  config:
+    - node.type.alert
+    - node.type.building
+    - node.type.city_service
+    - node.type.event
+    - node.type.guide
+    - node.type.information
+    - node.type.news
+    - node.type.notification
+    - node.type.service_location
   module:
     - content_moderation
 _core:
@@ -12,51 +22,75 @@ type: content_moderation
 type_settings:
   states:
     archived:
-      label: Archived
-      weight: 5
       published: false
       default_revision: true
+      label: Unpublished/Archived
+      weight: 1
     draft:
       label: Draft
       published: false
       default_revision: false
-      weight: -5
+      weight: -1
     published:
       label: Published
       published: true
       default_revision: true
+      weight: -2
+    review:
+      published: false
+      default_revision: false
+      label: 'In review'
       weight: 0
   transitions:
     archive:
       label: Archive
       from:
+        - draft
         - published
+        - review
       to: archived
-      weight: 2
-    archived_draft:
-      label: 'Restore to Draft'
-      from:
-        - archived
-      to: draft
-      weight: 3
+      weight: 0
     archived_published:
       label: Restore
       from:
         - archived
       to: published
-      weight: 4
+      weight: 1
     create_new_draft:
       label: 'Create New Draft'
       to: draft
-      weight: 0
+      weight: -3
       from:
+        - archived
         - draft
         - published
+        - review
     publish:
       label: Publish
       to: published
-      weight: 1
+      weight: -1
       from:
         - draft
         - published
-  entity_types: {  }
+        - review
+    send_to_review:
+      label: 'Send to review'
+      from:
+        - archived
+        - draft
+        - published
+        - review
+      to: review
+      weight: -2
+  entity_types:
+    node:
+      - alert
+      - building
+      - city_service
+      - event
+      - guide
+      - information
+      - news
+      - notification
+      - service_location
+  default_moderation_state: draft

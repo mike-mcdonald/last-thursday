@@ -1,11 +1,11 @@
-uuid: 6f24afc5-f80c-4cd7-a594-07f409d39f0d
-name: 'Last Thursdays on Alberta'
-mail: pbot@pbot.gov
-slogan: ''
+uuid: 191eddb9-0929-4dbd-bbfa-3f97bf1d93e0
+name: Portland.gov
+mail: powr@portlandoregon.gov
+slogan: 'The official website of the City of Portland, Oregon.'
 page:
   403: ''
   404: ''
-  front: /node/1
+  front: /node
 admin_compact_mode: false
 weight_select_max: 100
 langcode: en

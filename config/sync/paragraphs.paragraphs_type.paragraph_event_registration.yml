@@ -1,9 +1,0 @@
-uuid: 228e26c6-4e9e-46ce-85ec-663e37ce7fa2
-langcode: en
-status: true
-dependencies: {  }
-id: paragraph_event_registration
-label: 'Event Registration'
-icon_uuid: null
-description: ''
-behavior_plugins: {  }

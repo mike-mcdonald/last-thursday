@@ -1,105 +1,109 @@
 {
     "name": "mike-mcdonald/last-thursday",
-    "description": "A drupal site for Last Thursdays on Alberta",
+    "description": "Project for Drupal 8 Last Thursday site",
     "type": "project",
-    "license": "GPL-2.0+",
-    "authors": [
-        {
-            "name": "Mike McDonald",
-            "role": "maintainer"
-        }
-    ],
+    "license": "GPL-2.0-or-later",
+    "authors": [{
+        "name": "Mike McDonald",
+        "role": "Product Lead"
+    }],
     "repositories": {
         "0": {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
         },
         "1": {
-            "type": "vcs",
-            "url": "git@bitbucket.org:mike-mcdonald/pbot-theme.git"
-        },
-        "2": {
-            "type": "vcs",
-            "url": "https://github.com/mike-mcdonald/drupal-bootstrap"
-        },
-        "3": {
-            "type": "vcs",
-            "url": "git@bitbucket.org:mike-mcdonald/pog-connect.git"
-        },
-        "4": {
-            "type": "vcs",
-            "url": "git@bitbucket.org:mike-mcdonald/esri-geofield.git"
-        },
-        "5": {
-            "type": "vcs",
-            "url": "https://github.com/acquia/lightning-dev"
-        },
-        "6": {
             "type": "composer",
             "url": "https://asset-packagist.org"
+        },
+        "dev": {
+            "type": "vcs",
+            "url": "https://github.com/acquia/lightning-dev"
         }
     },
     "require": {
-        "acquia/lightning": "~3.0.0",
+        "acquia/lightning": "^3.2",
         "bower-asset/cropper": "^2.3",
         "composer/installers": "^1.2",
         "cweagans/composer-patches": "^1.6",
         "drupal-composer/drupal-scaffold": "^2.2",
+        "drupal-pattern-lab/add-attributes-twig-extension": "^1.0",
+        "drupal-pattern-lab/bem-twig-extension": "^1.0",
+        "drupal-pattern-lab/unified-twig-extensions": "^0.1",
         "drupal/address": "^1.3",
+        "drupal/admin_toolbar": "^1.18",
         "drupal/adminimal_admin_toolbar": "^1.5",
         "drupal/adminimal_theme": "^1.3",
-        "drupal/auto_entitylabel": "^2.1@beta",
-        "drupal/bootstrap": "^3.10",
-        "drupal/bootstrap_layouts": "^5.0",
-        "drupal/bootstrap_paragraphs": "^2.0@beta",
-        "drupal/config_filter": "^1.1",
-        "drupal/config_split": "^1.3",
-        "drupal/config_direct_save": "^1.0",
-        "drupal/config_installer": "^1.0",
+        "drupal/allowed_formats": "^1.1",
+        "drupal/anonymous_login": "^1.1",
+        "drupal/bootstrap_barrio": "^4.15",
+        "drupal/bootstrap_library": "^1.11",
+        "drupal/chosen": "^2.5",
+        "drupal/clamav": "^1.0",
+        "drupal/components": "^1.0",
+        "drupal/conditional_fields": "^1.0@alpha",
+        "drupal/config_split": "^1.4",
         "drupal/console": "^1.0.2",
-        "drupal/content_sync": "^1.2",
-        "drupal/core": "^8.4",
-        "drupal/ctools": "^3.0",
+        "drupal/content_lock": "^1.0@alpha",
+        "drupal/copyright_block": "^1.0@RC",
+        "drupal/core": "~8.5",
+        "drupal/custom_add_another": "^1.0@beta",
         "drupal/ds": "^3.1",
-        "drupal/email_registration": "^1.0@RC",
-        "drupal/entity_browser": "^2.0",
-        "drupal/feeds": "^3.0@alpha",
+        "drupal/easy_breadcrumb": "^1.8",
+        "drupal/eva": "^1.3",
+        "drupal/extlink": "^1.1",
+        "drupal/facets": "^1.0",
+        "drupal/field_defaults": "^1.0@RC",
         "drupal/field_group": "^1.0",
-        "drupal/geocoder": "^2.0@alpha",
-        "drupal/geofield": "^1.0@alpha",
-        "drupal/lightning_media": "1.0.0-alpha2",
-        "drupal/message": "^1.0@RC",
-        "drupal/metatag": "^1.4",
+        "drupal/field_permissions": "^1.0@RC",
+        "drupal/google_analytics": "^2.3",
+        "drupal/group": "^1.0",
+        "drupal/groupmedia": "^2.0@alpha",
+        "drupal/hsts": "^1.0",
+        "drupal/htmlpurifier": "^1.0@RC",
+        "drupal/inline_entity_form": "^1.0@RC",
+        "drupal/link_class": "^1.3",
+        "drupal/linkit": "^4.3",
+        "drupal/maxlength": "^1.0",
+        "drupal/openid_connect": "^1.0@beta",
         "drupal/page_manager": "^4.0@beta",
-        "drupal/pathauto": "^1.0",
-        "drupal/physical": "^1.0@RC",
-        "drupal/profile": "^1.0@RC",
-        "drupal/restui": "^1.15",
-        "drupal/rules": "^3.0@alpha",
-        "drupal/swiftmailer": "^1.0@beta",
-        "drupal/token": "^1.0",
-        "drupal/views_bootstrap": "^3.0",
-        "drupal/views_data_export": "^1.0@alpha",
-        "drush/drush": "~8.0|^9.0.0-beta8",
-        "pdx/bootstrap": "dev-8.x-3.x",
-        "pdx/pbot-theme": "dev-master",
-        "pdx/pog_connect": "dev-master",
+        "drupal/pantheon_advanced_page_cache": "^1.0",
+        "drupal/paragraphs": "^1.1",
+        "drupal/prepopulate": "^2.0",
+        "drupal/rabbit_hole": "^1.0@beta",
+        "drupal/redirect": "^1.1",
+        "drupal/restui": "^1.0",
+        "drupal/search_api_page": "^1.0",
+        "drupal/search_api_pantheon": "~1.0",
+        "drupal/search_api_solr": "^1.0",
+        "drupal/switch_page_theme": "^1.0",
+        "drupal/telephone_validation": "^2.1",
+        "drupal/textarea_widget_for_text": "^1.1",
+        "drupal/time_field": "^1.1",
+        "drupal/twig_tweak": "^2.0",
+        "drupal/views_bulk_operations": "^2.2",
+        "drupal/views_data_export": "^1.0@beta",
+        "drupal/viewsreference": "^1.2",
+        "drupal/webform": "^5.0@RC",
+        "drush/drush": "9.3.0",
         "roave/security-advisories": "dev-master",
         "webflo/drupal-finder": "^1.0.0",
         "webmozart/path-util": "^2.3",
-        "wikimedia/composer-merge-plugin": "^1.4",
-        "rvtraveller/qs-composer-installer": "^1.1",
-        "drush-ops/behat-drush-endpoint": "^8",
-        "pantheon-systems/quicksilver-pushback": "~1",
-        "webflo/drupal-core-strict": "^8",
-        "zaporylie/composer-drupal-optimizations": "^1.0"
+        "wikimedia/composer-merge-plugin": "^1.4"
     },
     "require-dev": {
-        "behat/behat": "3.*",
-        "behat/mink": "~1.7",
-        "behat/mink-extension": "^2.2",
+        "behat/behat": "^3.4",
+        "behat/mink": "^1.7",
+        "behat/mink-extension": "v2.2",
         "behat/mink-goutte-driver": "~1.2",
-        "drupal/drupal-extension": "^3.1",
+        "behat/mink-selenium2-driver": "^1.3",
+        "bex/behat-screenshot": "^1.2",
+        "drupal/coder": "^8.2",
+        "drupal/devel": "^1.2",
+        "drupal/drupal-extension": "^3.4",
+        "drupal/kint": "^1.2",
+        "drupal/masquerade": "2.0.0-beta2",
+        "guzzlehttp/guzzle": "^6.0@dev",
         "jcalderonzumba/gastonjs": "~1.0.2",
         "jcalderonzumba/mink-phantomjs-driver": "~0.3.1",
         "mikey179/vfsstream": "~1.2",
@@ -107,7 +111,8 @@
         "symfony/css-selector": "~2.8|~3.0"
     },
     "conflict": {
-        "drupal/drupal": "*"
+        "drupal/drupal": "*",
+        "doctrine/common": ">2.8"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
@@ -119,11 +124,6 @@
             "php": "7.0.8"
         }
     },
-    "autoload": {
-        "classmap": [
-            "scripts/composer/ScriptHandler.php"
-        ]
-    },
     "scripts": {
         "build-assets": [
             "@prepare-for-pantheon",
@@ -134,12 +134,6 @@
         "unit-test": "echo 'No unit test step defined.'",
         "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
         "prepare-for-pantheon": "DrupalProject\\composer\\ScriptHandler::prepareForPantheon",
-        "pre-install-cmd": [
-            "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
-        ],
-        "pre-update-cmd": [
-            "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
-        ],
         "post-install-cmd": [
             "@drupal-scaffold",
             "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
@@ -155,27 +149,13 @@
         ]
     },
     "extra": {
-        "installer-paths": {
-            "web/core": [
-                "type:drupal-core"
-            ],
-            "web/libraries/{$name}": [
-                "type:drupal-library"
-            ],
-            "web/modules/contrib/{$name}": [
-                "type:drupal-module",
-                "type:drupal-custom-module"
-            ],
-            "web/profiles/contrib/{$name}": [
-                "type:drupal-profile"
-            ],
-            "web/themes/contrib/{$name}": [
-                "type:drupal-theme"
-            ],
-            "drush/contrib/{$name}": [
-                "type:drupal-drush"
-            ]
-        },
+        "_readme": [
+            "By default Drupal loads the autoloader from ./vendor/autoload.php.",
+            "To change the autoloader you can edit ./autoload.php.",
+            "This file specifies the packages.drupal.org repository.",
+            "You can read more about this composer repository at:",
+            "https://www.drupal.org/node/2718229"
+        ],
         "build-env": {
             "install-cms": [
                 "drush site-install standard --account-mail={account-mail} --account-name={account-name} --account-pass={account-pass} --site-mail={site-mail} --site-name={site-name} --yes",
@@ -199,9 +179,69 @@
                 "web.config"
             ]
         },
+        "installer-types": [
+            "bower-asset",
+            "npm-asset"
+        ],
+        "enable-patching": true,
+        "patches": {
+            "drupal/core": {
+                "Database::startLog() cause a notice in Shortcut::sort()": "https://www.drupal.org/files/issues/2567035-surpress-uasort-contents-modified-errors-20.patch",
+                "1349080 - node_access filters out accessible nodes when node is left joined.": "https://www.drupal.org/files/issues/1349080-397-D8.patch",
+                "2797583 - Dynamically provide action plugins for every moderation state change": "https://www.drupal.org/files/issues/publish_unpublish-2797583-62.patch",
+                "2885278 - Node local tasks tabs do not appear on node revisions": "https://www.drupal.org/files/issues/2018-04-19/node-revisions-missing-local-tasks-2885278-11.patch",
+                "2769289 - Revision User information not displayed in views when content revision user is selected for View type Content": "https://www.drupal.org/files/issues/2018-09-07/node_revision_author-2769289-11.patch",
+                "2953331 - Add a views sort handler for sorting content by moderation state": "https://www.drupal.org/files/issues/2018-07-09/2953331-6.patch"
+            },
+            "drupal/ctools": {
+                "Views exposed filters missing autosubmit option https://www.drupal.org/node/2475595": "https://www.drupal.org/files/issues/2475595-ctools-autocomplete-fix-24.patch"
+            },
+            "drupal/group": {
+                "2774827 - node:group functionality for adding node:group:title": "https://www.drupal.org/files/issues/group_add-node-group-tokens-2774827-22.patch",
+                "2984315 - Create an enabler that will allow Media to be added as group content, and access-controlled by group permissions.": "https://www.drupal.org/files/issues/2018-08-24/2984315-5.patch",
+                "2842630 - Empty page when trying to create group node": "https://www.drupal.org/files/issues/2018-09-13/2842630-15.patch"
+            },
+            "drupal/clamav": {
+                "2915237 - allowUncheckedFiles() not working as expected": "https://www.drupal.org/files/issues/2915237-2.patch"
+            },
+            "drupal/search_api_pantheon": {
+                "2996001 - Use Lando client cert": "https://www.drupal.org/files/issues/2018-08-29/use_lando_cert.patch"
+            },
+            "drupal/menu_token": {
+                "2948260 - Tokens not substituted in query string": "https://www.drupal.org/files/issues/2018-09-21/2988939-allow-query-parameters-12.diff"
+            },
+            "drupal/groupmedia": {
+                "3020127 - Empty page when trying to create group node": "https://www.drupal.org/files/issues/2018-12-12/3020127-1.patch"
+            }
+        },
         "merge-plugin": {
-            "require": [
-                "web/modules/custom/pdx_geocoder/composer.json"
+            "include": [
+                "core/composer.json"
+            ],
+            "recurse": false,
+            "replace": false,
+            "merge-extra": false
+        },
+        "installer-paths": {
+            "web/core": [
+                "type:drupal-core"
+            ],
+            "web/libraries/{$name}": [
+                "type:drupal-library",
+                "type:bower-asset",
+                "type:npm-asset"
+            ],
+            "web/modules/contrib/{$name}": [
+                "type:drupal-module"
+            ],
+            "web/profiles/contrib/{$name}": [
+                "type:drupal-profile"
+            ],
+            "web/themes/contrib/{$name}": [
+                "type:drupal-theme"
+            ],
+            "web/drush/contrib/{$name}": [
+                "type:drupal-drush"
             ]
         }
     }

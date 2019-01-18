@@ -1,4 +1,4 @@
-uuid: c5ac2b72-641f-4254-a815-7e83d6b32ee1
+uuid: 9868f129-97fa-41e2-9acc-e4df7574adab
 langcode: en
 status: true
 dependencies: {  }
@@ -10,4 +10,6 @@ weight: 0
 is_admin: false
 permissions:
   - 'access content'
+  - 'view field_shortname_or_acronym'
   - 'view media'
+  - 'view search api pages'

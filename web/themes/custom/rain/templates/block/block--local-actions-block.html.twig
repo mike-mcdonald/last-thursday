@@ -1,0 +1,20 @@
+{% embed "block.html.twig" with {
+  'content_classes':[
+    'flex',
+    'flex-wrap',
+  ]
+} %}
+{#
+/**
+ * @file
+ * Theme override for local actions (primary admin actions.)
+ */
+#}
+{% block content %}
+  {% if content %}
+    <nav{{ create_attribute({ 'class': content_classes }) }}>
+      {{ content }}
+    </nav>
+  {% endif %}
+{% endblock %}
+{% endembed %}

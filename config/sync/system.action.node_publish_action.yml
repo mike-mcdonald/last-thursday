@@ -1,4 +1,4 @@
-uuid: 4068e69b-b35b-47d7-a4ee-9eff950af84a
+uuid: 65b19ae8-317e-47c3-8190-374748de9fe8
 langcode: en
 status: true
 dependencies:
@@ -9,5 +9,5 @@ _core:
 id: node_publish_action
 label: 'Publish content'
 type: node
-plugin: node_publish_action
+plugin: 'entity:publish_action:node'
 configuration: {  }

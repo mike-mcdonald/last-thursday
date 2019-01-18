@@ -1,0 +1,34 @@
+widget:
+  version: 1.x
+  css:
+    component:
+      lib/css/widget.bundle.css: {}
+  js:
+    lib/js/manifest.bundle.js: {}
+    lib/js/vendor.bundle.js: {}
+    lib/js/widget.bundle.js: {}
+  dependencies:
+    - core/jquery.once
+    - core/drupal
+    - core/drupalSettings
+
+formatter:
+  version: 1.x
+  css:
+    component:
+      lib/css/formatter.bundle.css: {}
+  js:
+    lib/js/manifest.bundle.js: {}
+    lib/js/vendor.bundle.js: {}
+    lib/js/formatter.bundle.js: {}
+  dependencies:
+    - core/jquery.once
+    - core/drupal
+    - core/drupalSettings
+
+esri:
+  css:
+    component:
+      https://js.arcgis.com/4.7/esri/css/main.css: { type: external }
+  js:
+    https://js.arcgis.com/4.7/: { type: external, attributes: { defer: true } }

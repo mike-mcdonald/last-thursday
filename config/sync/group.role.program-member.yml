@@ -1,0 +1,74 @@
+uuid: 960ed7f6-7a3f-4cb5-83be-ca6c71931634
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.program
+id: program-member
+label: Member
+weight: -100
+internal: true
+audience: member
+group_type: program
+permissions_ui: true
+permissions:
+  0: 'view group'
+  1: 'leave group'
+  2: 'access group_node overview'
+  3: 'create group_node:city_service entity'
+  4: 'delete own group_node:city_service entity'
+  5: 'update any group_node:city_service entity'
+  6: 'update own group_node:city_service entity'
+  7: 'view group_node:city_service entity'
+  8: 'view unpublished group_node:city_service entity'
+  11: 'delete own group_node:news entity'
+  12: 'update any group_node:news entity'
+  13: 'update own group_node:news entity'
+  14: 'view group_node:news entity'
+  15: 'view unpublished group_node:news entity'
+  17: 'delete own group_node:guide entity'
+  18: 'update any group_node:guide entity'
+  19: 'update own group_node:guide entity'
+  20: 'view group_node:guide entity'
+  21: 'view unpublished group_node:guide entity'
+  23: 'delete own group_node:information entity'
+  24: 'update any group_node:information entity'
+  25: 'update own group_node:information entity'
+  26: 'view group_node:information entity'
+  27: 'view unpublished group_node:information entity'
+  29: 'delete own group_node:event entity'
+  30: 'update any group_node:event entity'
+  31: 'update own group_node:event entity'
+  32: 'view group_node:event entity'
+  33: 'view unpublished group_node:event entity'
+  34: 'create group_node:notification entity'
+  36: 'delete own group_node:notification entity'
+  37: 'update any group_node:notification entity'
+  38: 'update own group_node:notification entity'
+  39: 'view group_node:notification entity'
+  40: 'view unpublished group_node:notification entity'
+  41: 'access group_media overview'
+  42: 'create group_media:audio entity'
+  44: 'delete own group_media:audio entity'
+  45: 'update any group_media:audio entity'
+  46: 'update own group_media:audio entity'
+  47: 'view group_media:audio entity'
+  48: 'view unpublished group_media:audio entity'
+  49: 'create group_media:document entity'
+  51: 'delete own group_media:document entity'
+  52: 'update any group_media:document entity'
+  53: 'update own group_media:document entity'
+  54: 'view group_media:document entity'
+  55: 'view unpublished group_media:document entity'
+  56: 'create group_media:image entity'
+  58: 'delete own group_media:image entity'
+  59: 'update any group_media:image entity'
+  60: 'update own group_media:image entity'
+  61: 'view group_media:image entity'
+  62: 'view unpublished group_media:image entity'
+  63: 'create group_media:video entity'
+  65: 'delete own group_media:video entity'
+  66: 'update any group_media:video entity'
+  67: 'update own group_media:video entity'
+  68: 'view group_media:video entity'
+  69: 'view unpublished group_media:video entity'
