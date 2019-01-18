@@ -1,0 +1,25 @@
+name: Cloudy
+description: Lightweight Bootstrap theme with Sass for Portland.gov
+
+type: theme
+core: 8.x
+base theme: classy
+
+libraries:
+  - cloudy/global-styling
+
+stylesheets-remove:
+  - '@extlink/extlink.css'
+
+regions:
+  global_admin: Global admin
+  pre_header: Pre-header
+  header: Header
+  primary_menu: Primary menu
+  header_form: Header form
+  tabs: Admin tabs
+  messages: Messages
+  pre_content: Pre-content
+  content: Content
+  footer_first: Footer first
+  footer_second: Footer second
