@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e0b9826277a7268a64bd0961a9fd39e5",
+    "content-hash": "975dc9dcfcf329d9b461c7fb5551303a",
     "packages": [
         {
             "name": "acquia/lightning",
@@ -4933,9 +4933,6 @@
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
                     }
-                },
-                "patches_applied": {
-                    "3020127 - Empty page when trying to create group node": "https://www.drupal.org/files/issues/2018-12-12/3020127-1.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
