@@ -53,7 +53,7 @@ jobs:
                 # Set TERMINUS_ENV and related environment variables.
                 # https://github.com/pantheon-systems/docker-build-tools-ci/blob/1.x/scripts/set-environment
                 name: environment
-                command: /build-tools-ci/scripts/set-environment
+                command: bash /build-tools-ci/scripts/set-environment
 
             - run:
                 name: run composer install to get the vendor directory
