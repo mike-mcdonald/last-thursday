@@ -5,7 +5,7 @@ dependencies: {  }
 id: config_prod
 label: 'Production Modules'
 description: 'Modules that should only be enabled in production (and not in preproduction environments).'
-folder: sites/default/config_prod
+folder: ../config/prod
 module: {  }
 theme: {  }
 blacklist: {  }

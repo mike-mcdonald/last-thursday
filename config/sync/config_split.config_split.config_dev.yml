@@ -5,7 +5,7 @@ dependencies: {  }
 id: config_dev
 label: 'Development Modules'
 description: 'Modules that should only be enabled in development environments.'
-folder: sites/default/config_dev
+folder: ../config/dev
 module: {  }
 theme: {  }
 blacklist: {  }
