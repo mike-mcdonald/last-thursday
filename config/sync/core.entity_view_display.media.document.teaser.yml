@@ -86,6 +86,8 @@ content:
 hidden:
   content_moderation_control: true
   created: true
+  field_file_size: true
   field_media_in_library: true
+  field_mime_type: true
   thumbnail: true
   uid: true

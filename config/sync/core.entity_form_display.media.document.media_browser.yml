@@ -54,4 +54,7 @@ content:
 hidden:
   created: true
   field_document: true
+  field_file_size: true
+  field_mime_type: true
+  field_summary: true
   uid: true

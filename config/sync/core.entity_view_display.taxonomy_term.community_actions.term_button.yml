@@ -20,3 +20,4 @@ mode: term_button
 content: {  }
 hidden:
   description: true
+  field_fontawesome_icon: true
