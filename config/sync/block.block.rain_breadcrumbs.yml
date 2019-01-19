@@ -1,0 +1,27 @@
+uuid: b8526bc0-f177-4b2d-bf70-f2fc7574f2aa
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - rain
+_core:
+  default_config_hash: wDR9JKEATSWldBjw8du8s3G2zjEYeQf88nlld11hMLo
+id: rain_breadcrumbs
+theme: rain
+region: content
+weight: -13
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  provider: system
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: '/taxonomy/term/*/*'
+    negate: true
+    context_mapping: {  }

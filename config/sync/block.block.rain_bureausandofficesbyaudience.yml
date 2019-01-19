@@ -1,0 +1,28 @@
+uuid: a597a9d1-db76-4d7e-89fd-e5b91612ee03
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.bureaus_by_audience
+  module:
+    - facets
+    - system
+  theme:
+    - rain
+id: rain_bureausandofficesbyaudience
+theme: rain
+region: content
+weight: 1
+provider: null
+plugin: 'facet_block:bureaus_by_audience'
+settings:
+  id: 'facet_block:bureaus_by_audience'
+  label: 'Bureaus and offices by audience'
+  provider: facets
+  label_display: visible
+visibility:
+  request_path:
+    id: request_path
+    pages: /bureaus-offices
+    negate: false
+    context_mapping: {  }

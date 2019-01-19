@@ -1,0 +1,25 @@
+uuid: f0cbf016-da96-4274-8d50-b110be700ba1
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.group_programs
+  module:
+    - views
+  theme:
+    - rain
+id: rain_views_block__group_programs_block_1
+theme: rain
+region: content
+weight: -7
+provider: null
+plugin: 'views_block:group_programs-block_1'
+settings:
+  id: 'views_block:group_programs-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+  context_mapping: {  }
+visibility: {  }

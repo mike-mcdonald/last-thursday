@@ -1,0 +1,30 @@
+uuid: c987097f-1de6-430d-be37-cce36025a862
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.alerts
+  module:
+    - system
+    - views
+  theme:
+    - rain
+id: rain_views_block__alerts_block_1
+theme: rain
+region: alert
+weight: -13
+provider: null
+plugin: 'views_block:alerts-block_1'
+settings:
+  id: 'views_block:alerts-block_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: /alerts
+    negate: true
+    context_mapping: {  }

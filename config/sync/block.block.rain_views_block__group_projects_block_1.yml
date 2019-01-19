@@ -1,0 +1,25 @@
+uuid: 46404b03-dc22-4588-bd23-74565a961ea4
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.group_projects
+  module:
+    - views
+  theme:
+    - rain
+id: rain_views_block__group_projects_block_1
+theme: rain
+region: content
+weight: -6
+provider: null
+plugin: 'views_block:group_projects-block_1'
+settings:
+  id: 'views_block:group_projects-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+  context_mapping: {  }
+visibility: {  }

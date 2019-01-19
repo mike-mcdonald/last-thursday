@@ -1,0 +1,31 @@
+uuid: 36f6f38f-22dd-4300-9458-37fe17bd5735
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.group_notifications_block
+  module:
+    - system
+    - views
+  theme:
+    - rain
+id: rain_views_block__group_notifications_block_block_1
+theme: rain
+region: notification
+weight: -11
+provider: null
+plugin: 'views_block:group_notifications_block-block_1'
+settings:
+  id: 'views_block:group_notifications_block-block_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+  context_mapping: {  }
+visibility:
+  request_path:
+    id: request_path
+    pages: '/group/*/notifications'
+    negate: true
+    context_mapping: {  }

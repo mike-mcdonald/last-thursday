@@ -1,0 +1,29 @@
+uuid: 52dfaaac-033a-4efb-ab1d-dd4c971e6281
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.group_title
+  module:
+    - facets
+    - system
+  theme:
+    - rain
+id: rain_grouptitle
+theme: rain
+region: content
+weight: -1
+provider: null
+plugin: 'facet_block:group_title'
+settings:
+  id: 'facet_block:group_title'
+  label: 'Results by site'
+  provider: facets
+  label_display: '0'
+  block_id: grouptitle
+visibility:
+  request_path:
+    id: request_path
+    pages: '/search/*'
+    negate: false
+    context_mapping: {  }

@@ -1,0 +1,42 @@
+uuid: 5096f058-81a4-4809-bb28-90e2411dbcf6
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.group_menu
+  module:
+    - group
+    - system
+    - views
+  theme:
+    - rain
+id: rain_views_block__group_menu_block_1
+theme: rain
+region: content
+weight: -10
+provider: null
+plugin: 'views_block:group_menu-block_1'
+settings:
+  id: 'views_block:group_menu-block_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+  context_mapping: {  }
+visibility:
+  group_type:
+    id: group_type
+    group_types:
+      bureau_office: bureau_office
+      elected_official: elected_official
+      program: program
+      project: project
+    negate: false
+    context_mapping:
+      group: '@group.group_route_context:group'
+  request_path:
+    id: request_path
+    pages: "/group/*/nodes\r\n/group/*/media\r\n/group/*/members"
+    negate: true
+    context_mapping: {  }

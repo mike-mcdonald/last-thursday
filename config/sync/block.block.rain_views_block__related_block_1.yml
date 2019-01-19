@@ -1,0 +1,36 @@
+uuid: cf3c0a61-d074-4376-938a-cb0df7880a81
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.related
+  module:
+    - ctools
+    - views
+  theme:
+    - rain
+id: rain_views_block__related_block_1
+theme: rain
+region: content
+weight: 3
+provider: null
+plugin: 'views_block:related-block_1'
+settings:
+  id: 'views_block:related-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+  context_mapping: {  }
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      city_service: city_service
+      guide: guide
+      information: information
+      service_location: service_location
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
