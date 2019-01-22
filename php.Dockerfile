@@ -3,7 +3,7 @@ FROM php:7.2-fpm
 # Version information
 ENV WKHTMLTOPDF_VERSION 0.12.3
 ENV PHANTOMJS_VERSION 2.1.1
-ENV TERMINUS_VERSION 1.8.1
+ENV TERMINUS_VERSION 1.9.0
 ENV MAVEN_VERSION 3.5.4
 
 RUN apt-get update && apt-get install -my gnupg
