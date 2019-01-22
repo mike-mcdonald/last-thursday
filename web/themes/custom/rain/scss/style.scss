@@ -38,13 +38,15 @@
  * @import "components/buttons";
  * @import "components/forms";
  */
-
+@import "typography";
 @import "links";
 @import "buttons";
 @import "dropbuttons";
 @import "views";
 @import "menus";
 @import "forms";
+@import "dialog";
+@import "progress";
 @import "select2/layout";
 
 .full-width {
@@ -56,7 +58,7 @@
 }
 
 details[open] {
-  >summary {
+  > summary {
     @apply border-b pb-3 mb-3;
   }
 }

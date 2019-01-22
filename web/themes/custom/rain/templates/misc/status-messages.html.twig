@@ -19,25 +19,44 @@
  *   - class: HTML classes.
  */
 #}
+{%
+  set wrapper_classes = wrapper_classes|default([
+    'mb-3'
+  ])
+%}
+{% set list_attributes = list_attributes|default(create_attribute()) %}
+{%
+  set list_classes = list_classes|default([
+    'list-reset',
+  ])
+%}
+{%
+  set message_classes = message_classes|default([
+    'mb-1',
+    'border-l-8',
+    'p-4',
+  ])
+%}
 {% for type, messages in message_list %}
-  <div role="contentinfo" aria-label="{{ status_headings[type] }}"{{ attributes|without('role', 'aria-label') }}>
-    {% if type == 'error' %}
-      <div role="alert">
+  {%
+    set type_classes = [
+      type == 'error' ? 'bg-red-lightest' : 'bg-tangerine-lightest',
+      type == 'error' ? 'border-red': 'border-tangerine',
+      type == 'error' ? 'text-red-darkest': 'text-tangerine-darkest',
+    ]
+  %}
+  <div role="{{ type == 'error' ? 'alert' : 'contentinfo' }}" aria-label="{{ status_headings[type] }}" {{ attributes.addClass(wrapper_classes)|without('role', 'aria-label') }}>
+    {% if status_headings[type] %}
+      <h2 class="visually-hidden">
+        {{ status_headings[type] }}
+      </h2>
     {% endif %}
-      {% if status_headings[type] %}
-        <h2 class="visually-hidden">{{ status_headings[type] }}</h2>
-      {% endif %}
-      {% if messages|length > 1 %}
-        <ul>
-          {% for message in messages %}
-            <li>{{ message }}</li>
-          {% endfor %}
-        </ul>
-      {% else %}
-        {{ messages|first }}
-      {% endif %}
-    {% if type == 'error' %}
-      </div>
-    {% endif %}
+    <ul {{ list_attributes.addClass(list_classes) }}>
+      {% for message in messages %}
+        <li {{ create_attribute({'class':message_classes|merge(type_classes)} ) }}>
+          {{ message }}
+        </li>
+      {% endfor %}
+    </ul>
   </div>
 {% endfor %}

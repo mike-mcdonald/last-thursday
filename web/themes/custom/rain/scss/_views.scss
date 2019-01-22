@@ -11,3 +11,34 @@
     @apply border-black border-b-2;
   }
 }
+
+.views-displays {
+  border: 1px solid #e8e8e8;
+}
+
+.views-admin .form-edit .form-actions {
+  border-color: #e8e8e8;
+  background-color: #fafafa;
+}
+
+.views-ui-display-tab-bucket .views-display-setting:nth-of-type(even) {
+  background-color: inherit;
+}
+
+.views-displays .tabs.secondary a {
+  border-radius: 0;
+}
+
+.view-preview-form__title {
+  background-color: #fafdfe;
+  border-bottom: 1px solid #e8e8e8;
+  font-size: 1.2em;
+}
+
+.views-preview-wrapper {
+  border: 1px solid #e8e8e8;
+}
+
+.views-ui-dialog .views-override {
+  background-color: #f6f6f6;
+}

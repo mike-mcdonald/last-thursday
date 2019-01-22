@@ -15,16 +15,16 @@
 {% set region_element = region_element|default('div') %}
 {%
   set region_classes = region_classes|default([
+    'region',
+    'region-' ~ region|clean_class
   ])
 %}
 {% block content %}
   {% if content %}
-    <{{ region_element }}{{ attributes.addClass(region_classes) }}>
-      {% block before_children %}
-      {% endblock %}
+    <{{region_element}}{{attributes.addClass(region_classes)}}>
+      {% block before_children %}{% endblock %}
       {{ content }}
-      {% block after_children %}
-      {% endblock %}
-    </{{ region_element }}>
+      {% block after_children %}{% endblock %}
+    </{{region_element}}>
   {% endif %}
 {% endblock %}

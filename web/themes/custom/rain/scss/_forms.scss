@@ -1,5 +1,27 @@
-table {
-  .mb-4 {
-    @apply mb-0;
+.filter-wrapper {
+  @apply -mt-4 border-0;
+}
+
+.region {
+  &.region-content {
+    #search-api-page-block-form {
+      @apply my-12 text-3xl;
+      .form-search {
+        @apply py-4;
+      }
+      .form-submit {
+        @apply py-4;
+      }
+    }
+  }
+}
+
+#search-api-page-block-form {
+  @apply flex;
+  .form-search {
+    @apply border-r-0 rounded-r-none;
+  }
+  .form-submit {
+    @apply border-l-0 rounded-l-none;
   }
 }
