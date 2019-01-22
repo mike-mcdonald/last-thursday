@@ -32,6 +32,8 @@ libraries-override:
   system/base:
     css:
       component:
-        css/components/tabledrag.module.css: false
+        /core/themes/stable/css/system/components/tabledrag.module.css: false
+        /core/themes/stable/css/system/components/container-inline.module.css: false
+        /core/themes/stable/css/system/components/progress.module.css: false
   cshs/cshs.base: false
   views_ui/admin.styling: false
