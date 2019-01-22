@@ -12,7 +12,6 @@ dependencies:
     - field.field.group.project.field_topics
     - group.type.project
   module:
-    - chosen_field
     - datetime_range
     - maxlength
 id: group.project.default
@@ -21,10 +20,13 @@ bundle: project
 mode: default
 content:
   field_audience:
-    weight: 5
-    settings: {  }
+    weight: 8
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
-    type: chosen_select
+    type: entity_reference_autocomplete
     region: content
   field_date_time_range:
     weight: 3
@@ -71,10 +73,13 @@ content:
     type: string_textarea
     region: content
   field_topics:
-    weight: 6
-    settings: {  }
+    weight: 9
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
-    type: chosen_select
+    type: entity_reference_autocomplete
     region: content
   label:
     type: string_textfield

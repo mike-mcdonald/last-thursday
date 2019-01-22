@@ -15,7 +15,6 @@ dependencies:
     - field.field.node.city_service.field_topics
     - node.type.city_service
   module:
-    - chosen_field
     - content_moderation
     - maxlength
     - paragraphs
@@ -32,16 +31,22 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_audience:
-    weight: 5
-    settings: {  }
+    weight: 26
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
-    type: chosen_select
+    type: entity_reference_autocomplete
     region: content
   field_community_actions:
-    weight: 4
-    settings: {  }
+    weight: 27
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
-    type: chosen_select
+    type: entity_reference_autocomplete
     region: content
   field_legacy_path:
     weight: 15
@@ -117,10 +122,13 @@ content:
     type: string_textfield
     region: content
   field_topics:
-    weight: 6
-    settings: {  }
+    weight: 28
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
-    type: chosen_select
+    type: entity_reference_autocomplete
     region: content
   moderation_state:
     type: moderation_state_default

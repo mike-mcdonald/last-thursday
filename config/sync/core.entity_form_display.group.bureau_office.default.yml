@@ -19,7 +19,6 @@ dependencies:
     - image.style.thumbnail
   module:
     - address
-    - chosen_field
     - cleave
     - field_group
     - image
@@ -55,10 +54,13 @@ content:
     type: address_default
     region: content
   field_audience:
-    weight: 4
-    settings: {  }
+    weight: 25
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
-    type: chosen_select
+    type: entity_reference_autocomplete
     region: content
   field_building:
     weight: 24
@@ -140,10 +142,13 @@ content:
     type: string_textarea
     region: content
   field_topics:
-    weight: 5
-    settings: {  }
+    weight: 26
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
-    type: chosen_select
+    type: entity_reference_autocomplete
     region: content
   label:
     type: string_textfield

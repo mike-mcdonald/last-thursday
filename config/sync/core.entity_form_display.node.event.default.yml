@@ -12,6 +12,7 @@ dependencies:
     - field.field.node.event.field_start_date
     - field.field.node.event.field_start_time
     - field.field.node.event.field_summary
+    - field.field.node.event.webform
     - node.type.event
   module:
     - conditional_fields
@@ -19,6 +20,7 @@ dependencies:
     - datetime
     - paragraphs
     - time_field
+    - webform
 id: node.event.default
 targetEntityType: node
 bundle: event
@@ -183,6 +185,13 @@ content:
       placeholder: ''
     region: content
     third_party_settings: {  }
+  webform:
+    weight: 27
+    settings:
+      default_data: true
+    third_party_settings: {  }
+    type: webform_entity_reference_select
+    region: content
 hidden:
   path: true
   promote: true
