@@ -64,29 +64,6 @@ class RouteSubscriber extends RouteSubscriberBase {
         ->warning('@message', $variables);
     }
 
-    // custom overrides on test and live environments
-    if(
-      isset($_ENV['PANTHEON_ENVIRONMENT']) &&
-      in_array($_ENV['PANTHEON_ENVIRONMENT'], ['powr-507', 'dev', 'test', 'live'])
-    ) {
-      // only log in with an OpenID provider
-      if ($route = $collection->get('user.login')) {
-        $route->setDefault('_form', 'Drupal\openid_connect\Form\LoginForm');
-      }
-      // don't accept POSTs to a login route
-      if ($route = $collection->get('user.login.http')) {
-        $route->setRequirement('_access', 'FALSE');
-      }
-      // don't allow password resets via Drupal
-      if($route = $collection->get('user.pass')) {
-        $route->setRequirement('_access', 'FALSE');
-      }
-      // don't accept POSTs to a password reset form
-      if($route = $collection->get('user.pass.http')) {
-        $route->setRequirement('_access', 'FALSE');
-      }
-    }
-
     // Override the SearchApiPageRoutes dynamic routes with
     // our static search routes
     $searchApiPageRoutes = new SearchApiPageRoutes(
