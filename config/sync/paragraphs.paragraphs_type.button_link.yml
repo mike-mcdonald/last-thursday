@@ -1,0 +1,11 @@
+uuid: 12617e22-e583-4a3f-8cac-d9d60c063d51
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: tFnb_sHbW94EnyZr_HExZyALn69Sftx3doDZZawYl00
+id: button_link
+label: 'Button Link'
+icon_uuid: null
+description: 'Use this paragraph to add a button that is a link with an optional icon'
+behavior_plugins: {  }

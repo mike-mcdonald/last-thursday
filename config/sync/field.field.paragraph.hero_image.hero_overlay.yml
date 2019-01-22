@@ -1,0 +1,30 @@
+uuid: 7687353b-bf05-422c-a52e-63d7c142dc74
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.hero_overlay
+    - paragraphs.paragraphs_type.hero_image
+  module:
+    - custom_add_another
+    - options
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: u3YQ9g9t1TbRyA5xI6TJEY_7ZU3icYXoECHzYQUPS8c
+id: paragraph.hero_image.hero_overlay
+field_name: hero_overlay
+entity_type: paragraph
+bundle: hero_image
+label: Overlay
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: '0'
+default_value_callback: ''
+settings: {  }
+field_type: list_string

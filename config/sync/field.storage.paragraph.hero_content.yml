@@ -1,0 +1,22 @@
+uuid: 05177a8b-443e-45c0-a7d8-5d30eb154341
+langcode: en
+status: true
+dependencies:
+  module:
+    - entity_reference_revisions
+    - paragraphs
+_core:
+  default_config_hash: Xghjz5yBH2QfXBTCR_8tdZUM_BuGbN1IW4JTif8uf04
+id: paragraph.hero_content
+field_name: hero_content
+entity_type: paragraph
+type: entity_reference_revisions
+settings:
+  target_type: paragraph
+module: entity_reference_revisions
+locked: false
+cardinality: 6
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
