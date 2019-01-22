@@ -81,6 +81,22 @@ services:
       - mail-network
       - db-network
 
+  solr:
+    image: solr
+    ports:
+      - "8983:8983"
+    volumes:
+      - index:/opt/solr/server/solr/mycores
+    entrypoint:
+      - docker-entrypoint.sh
+      - solr-precreate
+      - mycore
+    networks:
+      - code-network
+      - cache-network
+      - mail-network
+      - db-network
+
 networks:
   code-network:
     driver: bridge
@@ -97,3 +113,4 @@ volumes:
   modules:
   themes:
   tmp:
+  index:
