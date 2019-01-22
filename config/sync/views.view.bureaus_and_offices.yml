@@ -1,6 +1,6 @@
 uuid: 3ccd24ba-d9a4-4ffd-9f88-61f4c71bb1ba
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - search_api.index.bureaus
