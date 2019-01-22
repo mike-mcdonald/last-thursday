@@ -2,6 +2,31 @@
 
 use Drupal\Core\Url;
 
+function portland_theme($existing, $type, $theme, $path) {
+  return [
+    'portland_alert' => [
+      'variables' => [
+        'dismissible' => FALSE,
+        'type' => NULL,
+        'title' => NULL,
+        'text' => NULL,
+        'link_url' => NULL,
+        'link_text' => NULL,
+        'changed' => NULL,
+        'nid' => NULL,
+        'changed_timestamp' => NULL,
+      ],
+    ],
+    'portland_search_form' => [
+      'variables' => [
+        'size' => NULL,
+        'input' => NULL,
+        'buttons' => NULL,
+      ]
+    ]
+  ];
+}
+
 function template_preprocess_views_portland_alerts(array &$variables) {
   $variables['element'] = [];
 
