@@ -1,11 +1,10 @@
-/* purgecss start ignore */
 .filter-wrapper {
   @apply -mt-4 border-0;
 }
 
 .region {
   &.region-content {
-    #search-api-page-block-form {
+    .search-api {
       @apply my-12 text-3xl;
       .form-search {
         @apply py-4;
@@ -17,8 +16,10 @@
   }
 }
 
-#search-api-page-block-form {
-  @apply flex;
+.search-api {
+  form {
+    @apply flex;
+  }
   .form-search {
     @apply border-r-0 rounded-r-none;
   }
@@ -26,4 +27,3 @@
     @apply border-l-0 rounded-l-none;
   }
 }
-/* purgecss end ignore */
