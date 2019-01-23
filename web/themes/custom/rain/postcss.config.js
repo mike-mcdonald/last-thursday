@@ -13,9 +13,11 @@ class TailwindExtractor {
   }
 }
 
-module.exports = ({ file, options, env }) => {
-  console.log('options:', options)
-
+module.exports = ({
+  file,
+  options,
+  env
+}) => {
   return {
     plugins: [
       tailwindcss('./tailwind.config.js'),
@@ -29,15 +31,13 @@ module.exports = ({ file, options, env }) => {
           'js/main.bundle.js',
           './rain.theme',
         ],
-        extractors: [
-          {
-            extractor: TailwindExtractor,
+        extractors: [{
+          extractor: TailwindExtractor,
 
-            // Specify the file extensions to include when scanning for
-            // class names.
-            extensions: ["html", "twig", "js", "php", "vue", "theme"]
-          }
-        ]
+          // Specify the file extensions to include when scanning for
+          // class names.
+          extensions: ["html", "twig", "js", "php", "vue", "theme"]
+        }]
       }) : false,
     ]
   }
