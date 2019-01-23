@@ -4,6 +4,7 @@ status: true
 dependencies:
   module:
     - copyright_block
+    - system
   theme:
     - rain
 id: rain_copyrightblock
@@ -22,4 +23,9 @@ settings:
   text:
     value: "<p>© Copyright [copyright_statement:dates] City of Portland, Oregon, USA</p>\r\n"
     format: rich_text
-visibility: {  }
+visibility:
+  request_path:
+    id: request_path
+    pages: '/admin/*'
+    negate: true
+    context_mapping: {  }

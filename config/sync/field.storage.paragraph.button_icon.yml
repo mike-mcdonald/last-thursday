@@ -1,0 +1,41 @@
+uuid: 3e7dc832-7777-48d6-8ff6-92d7fe2bb242
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+_core:
+  default_config_hash: NPjBGLfqpM8NP_VhHxRirr74KtzalfYMeD6K9BfHrG0
+id: paragraph.button_icon
+field_name: button_icon
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: plus
+      label: 'Plus Sign'
+    -
+      value: minus
+      label: 'Minus Sign'
+    -
+      value: envelope
+      label: Envelope
+    -
+      value: pencil
+      label: Pencil
+    -
+      value: map-marker
+      label: 'Map Marker'
+    -
+      value: trash
+      label: 'Trash Can'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

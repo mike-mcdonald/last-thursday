@@ -1,0 +1,26 @@
+uuid: a12f7d2f-0723-4780-b858-fbefae9ce20f
+langcode: en
+status: true
+dependencies:
+  module:
+    - openid_connect
+    - system
+  theme:
+    - rain
+id: rain_openid_login
+theme: rain
+region: content
+weight: -7
+provider: null
+plugin: openid_connect_login
+settings:
+  id: openid_connect_login
+  label: 'OpenID Connect login'
+  provider: openid_connect
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: /user/login
+    negate: false
+    context_mapping: {  }

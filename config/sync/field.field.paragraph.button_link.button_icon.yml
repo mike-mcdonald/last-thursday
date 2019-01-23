@@ -1,0 +1,28 @@
+uuid: 7deca86c-6084-417d-b99d-6b5162ec2bcc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.button_icon
+    - paragraphs.paragraphs_type.button_link
+  module:
+    - custom_add_another
+    - options
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: S-RQbT1Gw4H19KdNb1Mw7nxf8Ds14r9Zn7tI6XJu_EI
+id: paragraph.button_link.button_icon
+field_name: button_icon
+entity_type: paragraph
+bundle: button_link
+label: Icon
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

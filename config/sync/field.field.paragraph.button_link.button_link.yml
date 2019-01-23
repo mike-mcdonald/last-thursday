@@ -1,0 +1,30 @@
+uuid: d68e09ad-0a99-4e9e-b2c3-fa4b2477393e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.button_link
+    - paragraphs.paragraphs_type.button_link
+  module:
+    - custom_add_another
+    - link
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: Qhxr8WzNSWlSPQZqEZTCsUgjmMhGYXBWkqg78atmR74
+id: paragraph.button_link.button_link
+field_name: button_link
+entity_type: paragraph
+bundle: button_link
+label: Link
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 2
+field_type: link

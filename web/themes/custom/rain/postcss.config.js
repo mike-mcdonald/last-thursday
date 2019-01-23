@@ -1,7 +1,7 @@
-const tailwindcss = require('tailwindcss')
-const purgecss = require('@fullhuman/postcss-purgecss')
-const cssnano = require('cssnano')
-const autoprefixer = require('autoprefixer')
+const tailwindcss = require("tailwindcss");
+const purgecss = require("@fullhuman/postcss-purgecss");
+const cssnano = require("cssnano");
+const autoprefixer = require("autoprefixer");
 
 // Custom PurgeCSS extractor for Tailwind that allows special characters in
 // class names.
@@ -20,10 +20,10 @@ module.exports = ({
 }) => {
   return {
     plugins: [
-      tailwindcss('./tailwind.config.js'),
+      tailwindcss("./tailwind.config.js"),
       autoprefixer,
       cssnano({
-        preset: 'default',
+        preset: "default"
       }),
       options.mode === 'production' ? purgecss({
         content: [
@@ -40,5 +40,5 @@ module.exports = ({
         }]
       }) : false,
     ]
-  }
-}
+  };
+};

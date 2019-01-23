@@ -1,0 +1,21 @@
+uuid: afc609f5-ef0e-41d6-8457-bfc6d3e3a054
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - paragraphs
+_core:
+  default_config_hash: VclXsFRPp-gcnLGxc4ngVAaWckawa75Cn5WEf6tniug
+id: paragraph.button_link
+field_name: button_link
+entity_type: paragraph
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

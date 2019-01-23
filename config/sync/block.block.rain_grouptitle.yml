@@ -12,7 +12,7 @@ dependencies:
 id: rain_grouptitle
 theme: rain
 region: content
-weight: -1
+weight: 0
 provider: null
 plugin: 'facet_block:group_title'
 settings:
