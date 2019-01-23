@@ -20,10 +20,6 @@ regions:
   left_footer: Left footer
   right_footer: Right footer
 
-libraries-extend:
-  system/base:
-    - rain/global-styling
-
 libraries-override:
   # Remove some core libraries I want to override.
   #  Overridden in global-styling library
