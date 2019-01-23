@@ -3,8 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.service_location.field_building
-    - field.field.node.service_location.field_floor
     - field.field.node.service_location.field_legacy_path
     - field.field.node.service_location.field_open_hours
     - field.field.node.service_location.field_summary
@@ -16,23 +14,6 @@ targetEntityType: node
 bundle: service_location
 mode: default
 content:
-  field_building:
-    weight: 3
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
-  field_floor:
-    weight: 2
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_legacy_path:
     weight: 7
     settings:

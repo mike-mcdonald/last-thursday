@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.storage.paragraph.field_location_type
     - paragraphs.paragraphs_type.address
-    - paragraphs.paragraphs_type.building
     - paragraphs.paragraphs_type.group_contact_information
     - paragraphs.paragraphs_type.location
     - paragraphs.paragraphs_type.service_location
@@ -33,7 +32,6 @@ settings:
     target_bundles:
       service_location: service_location
       group_contact_information: group_contact_information
-      building: building
       address: address
     target_bundles_drag_drop:
       service_location:

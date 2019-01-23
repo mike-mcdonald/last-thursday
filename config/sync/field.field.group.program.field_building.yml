@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.storage.group.field_building
     - group.type.program
-    - node.type.building
   module:
     - custom_add_another
 third_party_settings:
@@ -25,8 +24,7 @@ default_value_callback: ''
 settings:
   handler: 'default:node'
   handler_settings:
-    target_bundles:
-      building: building
+    target_bundles: {  }
     sort:
       field: _none
     auto_create: false

@@ -6,7 +6,6 @@ dependencies:
     - field.storage.node.field_event_location
     - node.type.event
     - paragraphs.paragraphs_type.address
-    - paragraphs.paragraphs_type.building
     - paragraphs.paragraphs_type.service_location
   module:
     - custom_add_another
@@ -31,7 +30,6 @@ settings:
     negate: 0
     target_bundles:
       service_location: service_location
-      building: building
       address: address
     target_bundles_drag_drop:
       service_location:

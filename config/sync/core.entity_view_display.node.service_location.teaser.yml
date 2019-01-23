@@ -4,8 +4,6 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.service_location.field_building
-    - field.field.node.service_location.field_floor
     - field.field.node.service_location.field_legacy_path
     - field.field.node.service_location.field_open_hours
     - field.field.node.service_location.field_summary
@@ -56,23 +54,6 @@ targetEntityType: node
 bundle: service_location
 mode: teaser
 content:
-  field_building:
-    type: entity_reference_entity_view
-    weight: 2
-    region: content
-    label: hidden
-    settings:
-      view_mode: address
-      link: false
-    third_party_settings: {  }
-  field_floor:
-    type: string
-    weight: 3
-    region: content
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
   field_open_hours:
     type: string
     weight: 4
