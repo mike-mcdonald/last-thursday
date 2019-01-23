@@ -65,10 +65,10 @@
     </span>
   </header>
 {% endif %}
-{% if page.notifications|render is not empty %}
+{% if page.notification|render is not empty %}
   <section role="notifications">
     <span class="{{ container_classes|join(' ') }}">
-      {{ page.notifications }}
+      {{ page.notification }}
     </span>
   </section>
 {% endif %}

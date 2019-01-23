@@ -40,9 +40,15 @@
 {% for type, messages in message_list %}
   {%
     set type_classes = [
-      type == 'error' ? 'bg-red-lightest' : 'bg-tangerine-lightest',
-      type == 'error' ? 'border-red': 'border-tangerine',
-      type == 'error' ? 'text-red-darkest': 'text-tangerine-darkest',
+      type == 'error' ? 'bg-red-lightest',
+      type == 'warning' ? 'bg-tangerine-lightest',
+      type == 'status' ? 'bg-green-lightest',
+      type == 'error' ? 'border-red',
+      type == 'warning' ? 'border-tangerine',
+      type == 'status' ? 'border-green',
+      type == 'error' ? 'text-red-darkest',
+      type == 'warning' ? 'text-tangerine-darkest',
+      type == 'status' ? 'text-green-darkest',
     ]
   %}
   <div role="{{ type == 'error' ? 'alert' : 'contentinfo' }}" aria-label="{{ status_headings[type] }}" {{ attributes.addClass(wrapper_classes)|without('role', 'aria-label') }}>
@@ -51,12 +57,10 @@
         {{ status_headings[type] }}
       </h2>
     {% endif %}
-    <ul {{ list_attributes.addClass(list_classes) }}>
-      {% for message in messages %}
-        <li {{ create_attribute({'class':message_classes|merge(type_classes)} ) }}>
-          {{ message }}
-        </li>
-      {% endfor %}
-    </ul>
+    {% for message in messages %}
+      <div {{ create_attribute({'class':message_classes|merge(type_classes)} ) }}>
+        {{ message }}
+      </div>
+    {% endfor %}
   </div>
 {% endfor %}
